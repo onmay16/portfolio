@@ -1,0 +1,52 @@
+a {
+    text-decoration: none;
+    color: inherit !important;
+}
+
+.appbar {
+    display: flex;
+}
+
+.nav-bar {
+    display: flex;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: 35px;
+
+    border: #1D2B53 dashed 5px;
+
+    width: fit-content;
+    height: fit-content;
+}
+
+.menu {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.nav-logo {
+    font-family: 'Daydream';
+    font-size: 30px;
+    color: #FF004D;
+
+    margin-top: 35px;
+    margin-left: 35px;
+    margin-bottom: 35px;
+}
+
+ul.menu {
+    padding-left: 40px;
+}
+
+ul.menu li {
+    display: inline;
+    font-family: 'Retro Computer';
+    font-size: 15px;
+    color: #1D2B53;
+    margin-right: 40px;
+}
+
+ul.menu li:hover {
+    text-decoration: overline;
+}

@@ -1,23 +1,23 @@
 <template>
-  <v-app>
-    <core-app-bar />
-    <core-view />
-    <core-footer author="May" />
+  <v-app style="background-color: #FFF6BF">
+    <app-bar />
+    <content-view />
+    <custom-footer author="May" />
   </v-app>
 </template>
 
 <script>
-import CoreAppBar from '@/components/core/AppBar'
-import CoreView from '@/components/core/View'
-import CoreFooter from '@/components/core/Footer'
+import AppBar from '@/components/core/AppBar'
+import ContentView from '@/components/core/View'
+import CustomFooter from '@/components/core/Footer'
 
 export default {
   name: 'App',
 
   components: {
-    CoreAppBar,
-    CoreView,
-    CoreFooter
+    AppBar,
+    ContentView,
+    CustomFooter
   },
 };
 </script>

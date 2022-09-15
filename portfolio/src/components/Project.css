@@ -1,0 +1,212 @@
+html, body{ margin: 0; }
+
+.projects {
+    background-color: #081330;
+    padding-top: 50px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.projects-title {
+    font-family: 'Daydream';
+    color: white;
+
+    margin: auto;
+    margin-bottom: 50px;
+}
+
+.project {
+    background-color: white;
+    width: fit-content;
+    margin: auto;
+    margin-bottom: 50px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.img-slider {
+    display: flex;
+}
+
+.slider-arrow {
+    width: 40px;
+    height: 40px;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-top: 365px;
+    cursor: pointer;
+}
+
+.album {
+    width: 1040px;
+    height: 650px;
+    overflow: hidden;
+    
+    margin-top: 50px;
+    margin-bottom: 50px;
+    border-radius: 20px;
+}
+
+.screenshots {
+    position: relative;
+    display: flex;
+    height: 650px;
+    /* transform: translateX(-1040px); */
+    
+    transition: all 0.5s;
+}
+
+.curave-screenshots {
+    transform: translateX(0px);
+}
+
+.screenshot {
+    width: auto;
+    height: 650px;
+}
+
+.project-heading {
+    display: flex;
+    margin: auto;
+    margin-bottom: 40px;
+}
+
+.project-title {
+    font-family: '8-bit pusab';
+    margin: auto;
+    margin-right: 20px;
+}
+
+.project-period {
+    font-family: '8-bit pusab';
+    margin: auto;
+    margin-right: 40px;
+}
+
+.project-summary {
+    font-family: 'Minecraftia';
+    color: #A4A4A4;
+    margin: auto;
+}
+
+.project-description {
+    margin: auto;
+    font-family: 'Minecraftia';
+    font-size: 14px;
+    letter-spacing: 1px;
+    line-height: 30px;
+
+    width: 950px;
+}
+
+.project-section-divider {
+    border-top: 4px dashed #081330;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.project-skill-stacks {
+    display: flex;
+}
+
+.proejct-main-features {
+    margin: auto;
+    display: flex;
+    margin-bottom: 50px;
+}
+
+.project-main-features-icon {
+    height: 30px;
+    width: auto;
+    margin: auto;
+    margin-right: 25px;
+}
+
+.project-main-features-text, .project-skill-text {
+    font-family: 'Retro Computer';
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: 25px;
+    text-align: center;
+}
+
+.project-main-features-content {
+    font-family: 'Minecraftia';
+    font-size: 14px;
+    letter-spacing: 1px;
+    line-height: 30px;
+}
+
+.project-skill-stacks {
+    margin: auto;
+    width: 865px;
+    margin-bottom: 50px;
+}
+
+.project-frontend {
+    margin-right: 50px;
+}
+
+.project-content {
+    font-family: 'Minecraftia';
+    font-size: 14px;
+    width: fit-content;
+}
+
+.project-content.frontend {
+    margin-left: 42px;
+}
+
+.project-content.backend {
+    margin-left: 50px;
+} 
+
+.project-backend {
+    margin-right: 100px;
+}
+
+.project-skill-heading {
+    display: flex;
+    margin-right: auto;
+    margin-bottom: 20px;
+}
+
+.project-links {
+    display: flex;
+}
+
+.proejct-link-rows {
+    display: flex;
+    display: column;
+}
+
+.project-link-first-row, .project-link-second-row {
+    display: flex;
+}
+
+.project-link-dot {
+    width: 4px;
+    margin-right: 20px;
+}
+
+.project-link {
+    font-family: 'Retro Computer';
+    margin-left: 0;
+    margin-right: 25px;
+    text-align: center;
+    width: fit-content;
+    height: fit-content;
+    cursor: pointer;
+}
+
+.project-link:hover {
+    text-decoration: underline;
+}
+
+.project-skill-icon {
+    height: 30px;
+    width: auto;
+    margin-right: 20px;
+}

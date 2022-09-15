@@ -1,5 +1,6 @@
-export default {
+module.exports = exports = {
     "env": {
+        "node": true,
         "browser": true,
         "es2021": true
     },
@@ -19,5 +20,6 @@ export default {
         "vue"
     ],
     "rules": {
+        'vue/multi-word-component-names': 0,
     }
 }
