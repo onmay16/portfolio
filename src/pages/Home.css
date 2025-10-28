@@ -18,6 +18,25 @@
   max-width: 800px;
 }
 
+.profile-picture {
+  margin-bottom: 2rem;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.profile-img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 8px 32px rgba(255, 255, 255, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 48px rgba(255, 255, 255, 0.4);
+}
+
 .hero-title {
   font-size: 3.5rem;
   font-weight: 700;

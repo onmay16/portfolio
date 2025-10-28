@@ -5,19 +5,21 @@ function Home() {
     <div className="home-page">
       <div className="hero-section">
         <div className="hero-content">
+          <div className="profile-picture">
+            <img src="/src/assets/profile-picture.jpg" alt="Sugyeong Hong" className="profile-img" />
+          </div>
           <h1 className="hero-title">
-            Hi, I'm <span className="highlight">Your Name</span>
+            Hi, I'm <span className="highlight">Sugyeong Hong</span>
           </h1>
           <h2 className="hero-subtitle">Software Engineer</h2>
           <p className="hero-bio">
-            I'm a passionate software engineer dedicated to building elegant solutions 
-            to complex problems. With expertise in modern web technologies and a focus 
-            on user experience, I create applications that make a difference.
+            I am passionate about leveraging AI and machine learning to create solutions that serve people, not just technology.
+            My goal is to apply data-driven innovation in ways that are ethical, transparent, and genuinely beneficial to society—bridging the gap between technical advancement and human well-being.
           </p>
         </div>
       </div>
       
-      <div className="value-proposition">
+      {/* <div className="value-proposition">
         <h3 className="section-title">What I Bring to the Table</h3>
         <div className="values-grid">
           <div className="value-card">
@@ -45,7 +47,7 @@ function Home() {
             </p>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }
