@@ -1,4 +1,5 @@
 import './Home.css';
+import profilePicture from '../assets/profile-picture.jpg';
 
 function Home() {
   return (
@@ -6,7 +7,7 @@ function Home() {
       <div className="hero-section">
         <div className="hero-content">
           <div className="profile-picture">
-            <img src="/src/assets/profile-picture.jpg" alt="Sugyeong Hong" className="profile-img" />
+            <img src={profilePicture} alt="Sugyeong Hong" className="profile-img" />
           </div>
           <h1 className="hero-title">
             Hi, I'm <span className="highlight">Sugyeong Hong</span>
