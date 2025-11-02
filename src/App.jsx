@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Artifacts from './pages/Artifacts';
+import ArtifactDetail from './pages/ArtifactDetail';
 import './App.css'
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/artifacts" element={<Artifacts />} />
+            <Route path="/artifacts/:id" element={<ArtifactDetail />} />
           </Routes>
         </main>
       </div>

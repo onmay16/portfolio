@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './Artifacts.css';
 
 function Artifacts() {
@@ -5,9 +6,9 @@ function Artifacts() {
   const artifacts = [
     {
       id: 1,
-      title: "Job Hunting Assistance",
-      description: "An AI assistance created with Gemini that helps find suitable job postings across various platforms based on user input and preferences.",
-      technologies: ["Gemini"],
+      title: "AI Job Hunting Assistant Lab",
+      description: "A team-based exploration of Google's Gemini tool to design an interactive AI Job Hunting Assistant that helps users find relevant job openings based on their profile including job type, years of experience, industry, and location.",
+      technologies: ["Google Gemini", "Prompt Engineering"],
       link: "https://gemini.google.com/gem/1hjS4aDbcpMUpYgtgStWX_4EXF1SCL-nw?usp=sharing",
       icon: "🔍"
     },
@@ -73,9 +74,9 @@ function Artifacts() {
               </div>
             </div>
             <div className="artifact-footer">
-              <a href={artifact.link} className="artifact-link">
-                View Project →
-              </a>
+              <Link to={`/artifacts/${artifact.id}`} className="artifact-link">
+                View Details →
+              </Link>
             </div>
           </div>
         ))}
