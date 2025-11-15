@@ -12,6 +12,15 @@ function Artifacts() {
       link: "https://gemini.google.com/gem/1hjS4aDbcpMUpYgtgStWX_4EXF1SCL-nw?usp=sharing",
       icon: "🔍"
     },
+    {
+      id: 2,
+      title: "Machine Learning vs Deep Learning Report",
+      description: "A comparative analysis report exploring the differences, applications, and relationships between Machine Learning and Deep Learning methodologies.",
+      technologies: ["Machine Learning", "Deep Learning", "Research"],
+      link: "/ml-vs-dl-report.docx",
+      icon: "🧠",
+      type: "report"
+    },
     // {
     //   id: 2,
     //   title: "Mobile App Beta",
