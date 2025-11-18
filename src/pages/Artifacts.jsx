@@ -21,6 +21,14 @@ function Artifacts() {
       icon: "🧠",
       type: "report"
     },
+    {
+      id: 3,
+      title: "Neural Networks Detective Story",
+      description: "An interactive demo created for a 'Communicating for Learning' assignment that explains neural networks through a detective-themed narrative and animated flip-card interactions. Breaks down the neural network process into intuitive steps: input, feature extraction, forward pass, output, and backpropagation.",
+      technologies: ["ChatGPT 5.1", "Interactive Storytelling", "Neural Networks"],
+      link: "https://chatgpt.com/canvas/shared/691693dcdf588191876eac36efa7b83b",
+      icon: "🕵️"
+    },
     // {
     //   id: 2,
     //   title: "Mobile App Beta",

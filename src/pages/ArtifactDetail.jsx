@@ -9,7 +9,6 @@ function ArtifactDetail() {
   // State to manage collapsed/expanded sections
   const [collapsedSections, setCollapsedSections] = useState({
     overview: true,
-    labLog: true,
     learnings: true,
     comparison: true
   });
@@ -164,6 +163,26 @@ The analysis delves into the technical foundations of both approaches, examining
         "The choice between ML and DL depends on data type, problem complexity, and available resources",
         "Both approaches have complementary strengths and are often used together in real-world applications"
       ]
+    },
+    3: {
+      id: 3,
+      title: "Neural Networks Detective Story",
+      description: "An interactive demo created for a 'Communicating for Learning' assignment that explains neural networks through a detective-themed narrative and animated flip-card interactions. Breaks down the neural network process into intuitive steps: input, feature extraction, forward pass, output, and backpropagation.",
+      technologies: ["ChatGPT 5.1", "Interactive Storytelling", "Neural Networks"],
+      link: "https://chatgpt.com/canvas/shared/691693dcdf588191876eac36efa7b83b",
+      icon: "🕵️",
+      detailedDescription: `I created this interactive demo as part of my "Communicating for Learning" assignment, where the goal was to explain neural networks as simply and effectively as possible. I used ChatGPT 5.1 to help iterate on the concept, refine the storytelling, and shape the educational framing.
+
+The demo uses a detective-themed narrative and animated flip-card interactions to break the neural network process into small, intuitive steps (input, feature extraction, forward pass, output, and backpropagation). This artifact demonstrates my ability to combine accurate AI/ML concepts with engaging UI design and learning-centered communication.`,
+      learnings: [
+        "Effective educational communication requires breaking complex concepts into small, digestible steps",
+        "Storytelling and narrative frameworks make abstract technical concepts more accessible and memorable",
+        "Animated interactions and visual design enhance understanding and engagement",
+        "ChatGPT 5.1 can be effectively used as a tool for iterating on concepts and refining educational content",
+        "Combining accurate technical knowledge with learning-centered communication creates effective educational experiences",
+        "UI design plays a crucial role in making complex information intuitive and engaging",
+        "The detective metaphor effectively bridges the gap between neural network processes and intuitive understanding"
+      ]
     }
     // Add more artifacts as needed
   };
@@ -302,39 +321,6 @@ The analysis delves into the technical foundations of both approaches, examining
               </h2>
               {!collapsedSections.overview && (
                 <p className="artifact-overview">{artifact.detailedDescription}</p>
-              )}
-            </section>
-
-            <section className="artifact-section">
-              <h2 onClick={() => toggleSection('labLog')} className="collapsible-header">
-                Lab Log
-                <span className={`collapse-icon ${collapsedSections.labLog ? 'collapsed' : ''}`}>
-                  ▼
-                </span>
-              </h2>
-              {!collapsedSections.labLog && (
-                <div className="lab-log-table">
-                  <table>
-                    <thead>
-                      <tr>
-                        <th>#</th>
-                        <th>Instruction</th>
-                        <th>Results</th>
-                        <th>Change from Previous</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {artifact.labLog && artifact.labLog.map((entry, index) => (
-                        <tr key={index}>
-                          <td>{entry.iteration}</td>
-                          <td>{entry.instruction}</td>
-                          <td>{entry.results}</td>
-                          <td>{entry.Change}</td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
               )}
             </section>
 
