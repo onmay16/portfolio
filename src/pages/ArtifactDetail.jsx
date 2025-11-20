@@ -1,159 +1,305 @@
-import { useParams, useNavigate } from 'react-router-dom';
-import { useState } from 'react';
-import './ArtifactDetail.css';
+import { useParams, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import "./ArtifactDetail.css";
+
+// Helper function to convert markdown bold (**text**) to HTML bold and preserve line breaks
+function renderMarkdownText(text) {
+  if (!text) return text;
+
+  // Split by line breaks first, then process each line
+  const lines = text.split("\n");
+  return lines.map((line, lineIndex) => {
+    // Split by markdown bold patterns
+    const parts = line.split(/(\*\*[^*]+\*\*)/g);
+    const processedParts = parts.map((part, partIndex) => {
+      if (part.startsWith("**") && part.endsWith("**")) {
+        const boldText = part.slice(2, -2);
+        return <strong key={`${lineIndex}-${partIndex}`}>{boldText}</strong>;
+      }
+      return part;
+    });
+
+    return (
+      <span key={lineIndex}>
+        {processedParts}
+        {lineIndex < lines.length - 1 && <br />}
+      </span>
+    );
+  });
+}
 
 function ArtifactDetail() {
   const { id } = useParams();
   const navigate = useNavigate();
-  
+
   // State to manage collapsed/expanded sections
   const [collapsedSections, setCollapsedSections] = useState({
     overview: true,
+    introduction: true,
+    objective: true,
+    process: true,
+    tools: true,
+    valueProp: true,
+    labLog: true,
     learnings: true,
-    comparison: true
+    references: true,
+    comparison: true,
   });
 
   const toggleSection = (section) => {
-    setCollapsedSections(prev => ({
+    setCollapsedSections((prev) => ({
       ...prev,
-      [section]: !prev[section]
+      [section]: !prev[section],
     }));
   };
 
-  // This should match the artifacts data from Artifacts.jsx
-  // In a real app, you might fetch this from an API or context
   const artifactsData = {
     1: {
       id: 1,
       title: "AI Job Hunting Assistant Lab",
-      description: "A team-based exploration of Google's Gemini tool to design an interactive AI Job Hunting Assistant that helps users find relevant job openings based on their profile including job type, years of experience, industry, and location.",
+      description:
+        "A team-based exploration of Google's Gemini tool to design an interactive AI Job Hunting Assistant that helps users find relevant job openings based on their profile including job type, years of experience, industry, and location.",
       technologies: ["Google Gemini", "Prompt Engineering"],
       link: "https://gemini.google.com/gem/1hjS4aDbcpMUpYgtgStWX_4EXF1SCL-nw?usp=sharing",
       icon: "🔍",
+      introduction: `Job searching is a time-consuming and often overwhelming process for many professionals. With thousands of job postings across multiple platforms, finding relevant opportunities that match specific criteria—such as job type, experience level, industry, and location—can be challenging. This problem is particularly acute for job seekers who need to filter through numerous listings to find positions that align with their qualifications and career goals.
+
+This work connects directly to my professional goal of developing AI solutions that genuinely benefit people by reducing time spent on repetitive tasks and improving access to relevant opportunities.`,
+      objective: {
+        intro:
+          "The primary objective of this lab was to design a prototype AI Job Hunting Assistant using Google's Gemini that returns relevant job postings based on user-specified parameters including job type, years of experience, industry, and location. Specifically, we aimed to:",
+        items: [
+          "Experiment with Google's Gemini model to understand its capabilities for real-time job search assistance",
+          "Iterate on prompt engineering techniques to refine the assistant's ability to generate accurate, relevant job recommendations",
+          "Test how different instruction approaches affect the quality and accuracy of job search results",
+          "Develop a system that provides direct links to company job postings rather than third-party aggregator sites",
+          "Create a professional, user-friendly interface for job seekers to interact with the AI assistant",
+        ],
+      },
       detailedDescription: `This AI Lab project involved our team exploring Google's Gemini tool to design a simple yet effective AI Job Hunting Assistant. The system serves as an interactive platform that helps users find relevant job openings based on their specific profile criteria, including job type, years of experience (YoE), industry preferences, and desired location.
 
 While this doesn't represent a complete functional product, our primary focus was on experimenting with prompt iteration and testing how different instruction approaches affected the assistant's ability to generate relevant and professional responses for job seekers. This hands-on exploration provided valuable insights into the iterative nature of AI development and the critical importance of precise prompt engineering.`,
+      process: {
+        intro:
+          "Our team approached this project through an iterative, collaborative methodology focused on prompt engineering and systematic testing. The process unfolded in several key phases:",
+        sections: [
+          {
+            title: "Team Structure and Roles",
+            content:
+              "Our team worked collaboratively, with members contributing different perspectives on prompt design and testing strategies. We divided responsibilities for testing different iterations, documenting results, and refining instructions based on observed outcomes.",
+          },
+          {
+            title: "Methodology",
+            items: [
+              {
+                title: "Initial Design Phase",
+                description:
+                  "We began by defining the core functionality—an assistant that could search for jobs based on user criteria and present results in a structured format.",
+              },
+              {
+                title: "Iterative Prompt Refinement",
+                description:
+                  "We conducted seven distinct iterations, each building on lessons learned from the previous version. For each iteration, we:",
+                subItems: [
+                  "Designed specific prompt instructions",
+                  "Tested the assistant's responses with various input scenarios",
+                  "Documented results, including successes and failures",
+                  "Identified specific issues (e.g., third-party links, missing fields)",
+                  "Refined instructions to address identified problems",
+                ],
+              },
+              {
+                title: "Testing and Evaluation",
+                description:
+                  "We tested each iteration with different combinations of inputs (complete inputs, missing fields, edge cases) to understand how the assistant handled various scenarios.",
+              },
+              {
+                title: "Environment Optimization",
+                description:
+                  "During iteration 6, we switched from Gemini Flash to Gemini Pro environment, which improved link accuracy and overall performance.",
+              },
+            ],
+          },
+          {
+            title: "Challenges Encountered",
+            content:
+              "Throughout the development process, we faced several significant challenges that required multiple iterations to resolve.",
+          },
+        ],
+      },
       features: [
         "Interactive job search based on user profile criteria",
         "Customizable filters for job type, experience level, industry, and location",
         "AI-generated relevant job recommendations",
         "Professional response formatting for job seekers",
-        "Iterative prompt refinement for improved accuracy"
+        "Iterative prompt refinement for improved accuracy",
       ],
       challenges: [
         "Providing accurate links to specific job postings rather than generic platform pages",
         "Initial iterations generated links to third-party job platform pages with irrelevant job lists",
         "Assistant was providing Google search engine links instead of direct job posting URLs",
         "Ensuring links connected directly to company job postings rather than aggregator sites",
-        "Coordinating different prompt engineering approaches within the team"
+        "Coordinating different prompt engineering approaches within the team",
       ],
       learnings: [
         "Understanding the iterative nature of AI interaction and prompt engineering",
         "Importance of clear, goal-oriented communication with generative models",
         "How different team members approach problem-solving with varied instruction strategies",
         "The value of experimentation and curiosity in AI development",
-        "Practical experience with prompt iteration to achieve specific, measurable outcomes"
+        "Practical experience with prompt iteration to achieve specific, measurable outcomes",
       ],
       labLog: [
         {
           iteration: 1,
-          instruction: "Ask the user to input the job type and location if they have already. Browse online and gather all job openings with links to apply, listing them in a table with columns for company name, role, application link, and sponsorship information (if applicable).",
-          results: "Asked job/location as intended. However, the result set was overly broad, especially regarding experience level (EOY).",
-          Change: "-"
+          instruction:
+            "Ask the user to input the job type and location if they have already. Browse online and gather all job openings with links to apply, listing them in a table with columns for company name, role, application link, and sponsorship information (if applicable).",
+          results:
+            "Asked job/location as intended. However, the result set was overly broad, especially regarding experience level (EOY).",
+          Change: "-",
         },
         {
           iteration: 2,
-          instruction: "Ask the user to input the job type, year of experience, industry, and location. Browse online and gather all job openings with links to apply, listing them in a table with columns for company name, industry, role, YoE required, application link, and sponsorship information (if applicable).",
-          results: "When the industry was not provided, the system prompted the user to specify one. Improved interaction by requesting missing details.",
-          Change: "Added industry and years of experience (YoE) fields."
+          instruction:
+            "Ask the user to input the job type, year of experience, industry, and location. Browse online and gather all job openings with links to apply, listing them in a table with columns for company name, industry, role, YoE required, application link, and sponsorship information (if applicable).",
+          results:
+            "When the industry was not provided, the system prompted the user to specify one. Improved interaction by requesting missing details.",
+          Change: "Added industry and years of experience (YoE) fields.",
         },
         {
           iteration: 3,
-          instruction: "Ask the user to input the job type, year of experience, industry, and location. If no specific answer is provided by users, include all information related. Browse online and gather all job openings with links to apply, listing them in a table with columns for company name, industry, role, YoE required, application link, and sponsorship information (if applicable).",
-          results: "Job posting links led to general job board lists instead of direct postings. Improved logic to handle missing industry input by including all industries by default.",
-          Change: "Set default behavior to include all industries when unspecified."
+          instruction:
+            "Ask the user to input the job type, year of experience, industry, and location. If no specific answer is provided by users, include all information related. Browse online and gather all job openings with links to apply, listing them in a table with columns for company name, industry, role, YoE required, application link, and sponsorship information (if applicable).",
+          results:
+            "Job posting links led to general job board lists instead of direct postings. Improved logic to handle missing industry input by including all industries by default.",
+          Change:
+            "Set default behavior to include all industries when unspecified.",
         },
         {
           iteration: 4,
-          instruction: "Ask the user to input the job type, year of experience, industry, and location. If no specific answer is provided by users, include all information related. Browse online and gather all job openings with direct company links to apply, listing them in a table with columns for company name, industry, role, YoE required, application link, and sponsorship information (if applicable).",
-          results: "Results still included non-company links and failed to reach direct application pages. Partial improvement but lacked proper source filtering.",
-          Change: "Enhanced instruction to prioritize direct company career links."
+          instruction:
+            "Ask the user to input the job type, year of experience, industry, and location. If no specific answer is provided by users, include all information related. Browse online and gather all job openings with direct company links to apply, listing them in a table with columns for company name, industry, role, YoE required, application link, and sponsorship information (if applicable).",
+          results:
+            "Results still included non-company links and failed to reach direct application pages. Partial improvement but lacked proper source filtering.",
+          Change:
+            "Enhanced instruction to prioritize direct company career links.",
         },
         {
           iteration: 5,
-          instruction: "Ask the user to input the job type, year of experience, industry, and location. If no specific answer is provided by users, include all information related. Browse online and gather all job openings with direct company links to apply(don't link to 3rd party job hunting website results, provide job application URL), listing them in a table with columns for company name, industry, role, YoE required, application link, and sponsorship information (if applicable).",
-          results: "Most links worked correctly, though some remained third-party sources. Certain listings appeared but failed to open upon clicking.",
-          Change: "Instructed system to exclude third-party job boards and provide only valid application URLs."
+          instruction:
+            "Ask the user to input the job type, year of experience, industry, and location. If no specific answer is provided by users, include all information related. Browse online and gather all job openings with direct company links to apply(don't link to 3rd party job hunting website results, provide job application URL), listing them in a table with columns for company name, industry, role, YoE required, application link, and sponsorship information (if applicable).",
+          results:
+            "Most links worked correctly, though some remained third-party sources. Certain listings appeared but failed to open upon clicking.",
+          Change:
+            "Instructed system to exclude third-party job boards and provide only valid application URLs.",
         },
         {
           iteration: 6,
           instruction: "No change",
-          results: "Links mostly worked but some URLs were still derived from Google search instead of using the direct application source.",
-          Change: "Same instruction retained, but switched from Flash to Pro environment for testing."
+          results:
+            "Links mostly worked but some URLs were still derived from Google search instead of using the direct application source.",
+          Change:
+            "Same instruction retained, but switched from Flash to Pro environment for testing.",
         },
         {
           iteration: 7,
-          instruction: "Ask the user to input the job type, year of experience, industry, and location. If no specific answer is provided by users, include all information related. Browse online and gather all job openings with direct company links to apply(don't link to 3rd party job hunting website results, provide job application URL, don't Google search the URL, URL need point to the job application on company website directly), listing them in a table with columns for company name, industry, role, YoE required, application link, and sponsorship information (if applicable).",
-          results: "All links worked successfully, indicating full resolution of redirection and third-party link issues. Minor potential edge cases may remain.",
-          Change: "Specified not to use Google search for URLs and to return only verified application pages."
-        }
+          instruction:
+            "Ask the user to input the job type, year of experience, industry, and location. If no specific answer is provided by users, include all information related. Browse online and gather all job openings with direct company links to apply(don't link to 3rd party job hunting website results, provide job application URL, don't Google search the URL, URL need point to the job application on company website directly), listing them in a table with columns for company name, industry, role, YoE required, application link, and sponsorship information (if applicable).",
+          results:
+            "All links worked successfully, indicating full resolution of redirection and third-party link issues. Minor potential edge cases may remain.",
+          Change:
+            "Specified not to use Google search for URLs and to return only verified application pages.",
+        },
       ],
-      images: [
-        // Add image URLs if you have screenshots
-      ]
     },
     2: {
       id: 2,
       title: "Machine Learning vs Deep Learning Report",
-      description: "A comparative analysis report exploring the differences, applications, and relationships between Machine Learning and Deep Learning methodologies.",
+      description:
+        "A comparative analysis report exploring the differences, applications, and relationships between Machine Learning and Deep Learning methodologies.",
       technologies: ["Machine Learning", "Deep Learning", "Research"],
       link: "https://myemailindwes-my.sharepoint.com/personal/sugyeong_hong_myemail_indwes_edu/_layouts/15/guestaccess.aspx?share=EXYnAwu39x9JnYDQ-XESidcBTWz_FulH-WmeGC0-Stc7DQ",
       icon: "🧠",
       type: "report",
+      introduction: `Understanding the relationship between Machine Learning and Deep Learning is fundamental for anyone working in artificial intelligence. These two approaches, while related, serve different purposes and have distinct characteristics that make them suitable for different types of problems. As AI continues to evolve and become more integrated into various industries, having a clear understanding of when to use traditional machine learning versus deep learning is crucial for making informed technical decisions.
+
+This comparative analysis connects to my professional goals by providing a foundation for understanding AI methodologies, which is essential for developing effective AI solutions. By clearly distinguishing between these approaches, I can better select the right tool for each problem, ensuring that solutions are both technically sound and appropriately scoped.`,
+      objective: {
+        intro:
+          "The primary objective of this report was to provide a comprehensive comparative analysis of Machine Learning and Deep Learning, specifically:",
+        items: [
+          "Clearly define both Machine Learning and Deep Learning and explain their relationship",
+          "Identify and analyze key differences between the two approaches across multiple dimensions",
+          "Explore the contexts and applications where each methodology is most effective",
+          "Provide practical guidance on when to choose one approach over the other",
+          "Examine the technical foundations and requirements of each approach",
+        ],
+      },
       detailedDescription: `This report provides a comprehensive comparative analysis of Machine Learning (ML) and Deep Learning (DL), two fundamental approaches in the field of artificial intelligence. The document explores their definitions, relationships, key differences, applications, and the contexts in which each methodology is most effective.
 
 The analysis delves into the technical foundations of both approaches, examining how traditional machine learning algorithms differ from deep neural networks, and when each approach is most suitable for solving different types of problems. The report also discusses the evolution of these technologies and their impact on various industries.`,
+      references: [
+        {
+          title: "Machine Learning and FICO Scores",
+          url: "https://www.fico.com/en/latest-thinking/white-paper/machine-learning-and-fico-scores?utm_source=chatgpt.com",
+          description:
+            "White paper on machine learning applications in credit scoring and financial services.",
+        },
+      ],
       comparison: [
         {
           aspect: "Definition",
-          machineLearning: "Algorithms that enable systems to learn and improve from experience without explicit programming",
-          deepLearning: "A subset of ML using multi-layered neural networks to model high-level abstractions"
+          machineLearning:
+            "Algorithms that enable systems to learn and improve from experience without explicit programming",
+          deepLearning:
+            "A subset of ML using multi-layered neural networks to model high-level abstractions",
         },
         {
           aspect: "Data Requirements",
-          machineLearning: "Can work with smaller datasets; requires structured data or manual feature engineering",
-          deepLearning: "Requires large amounts of data; excels with unstructured data (images, text, audio)"
+          machineLearning:
+            "Can work with smaller datasets; requires structured data or manual feature engineering",
+          deepLearning:
+            "Requires large amounts of data; excels with unstructured data (images, text, audio)",
         },
         {
           aspect: "Feature Engineering",
           machineLearning: "Requires manual feature engineering and selection",
-          deepLearning: "Automatically learns features from raw data; minimal feature engineering needed"
+          deepLearning:
+            "Automatically learns features from raw data; minimal feature engineering needed",
         },
         {
           aspect: "Computational Resources",
-          machineLearning: "Lower computational requirements; can run on standard hardware",
-          deepLearning: "High computational requirements; typically needs GPUs and specialized hardware"
+          machineLearning:
+            "Lower computational requirements; can run on standard hardware",
+          deepLearning:
+            "High computational requirements; typically needs GPUs and specialized hardware",
         },
         {
           aspect: "Interpretability",
-          machineLearning: "Generally more interpretable; easier to understand decision-making process",
-          deepLearning: "Less interpretable; often referred to as 'black box' models"
+          machineLearning:
+            "Generally more interpretable; easier to understand decision-making process",
+          deepLearning:
+            "Less interpretable; often referred to as 'black box' models",
         },
         {
           aspect: "Best For",
-          machineLearning: "Structured data, smaller datasets, when interpretability is crucial, traditional business problems",
-          deepLearning: "Unstructured data, large datasets, complex patterns (image recognition, NLP, speech recognition)"
+          machineLearning:
+            "Structured data, smaller datasets, when interpretability is crucial, traditional business problems",
+          deepLearning:
+            "Unstructured data, large datasets, complex patterns (image recognition, NLP, speech recognition)",
         },
         {
           aspect: "Training Time",
-          machineLearning: "Faster training times; quicker to prototype and iterate",
-          deepLearning: "Longer training times; requires more time for model convergence"
+          machineLearning:
+            "Faster training times; quicker to prototype and iterate",
+          deepLearning:
+            "Longer training times; requires more time for model convergence",
         },
         {
           aspect: "Common Algorithms",
-          machineLearning: "Linear/Logistic Regression, Decision Trees, Random Forest, SVM, K-Means",
-          deepLearning: "CNNs, RNNs, LSTMs, Transformers, GANs, Autoencoders"
-        }
+          machineLearning:
+            "Linear/Logistic Regression, Decision Trees, Random Forest, SVM, K-Means",
+          deepLearning: "CNNs, RNNs, LSTMs, Transformers, GANs, Autoencoders",
+        },
       ],
       learnings: [
         "Deep Learning is a specialized subset of Machine Learning, not a separate field",
@@ -161,16 +307,35 @@ The analysis delves into the technical foundations of both approaches, examining
         "Traditional ML often performs better with structured data and when interpretability is crucial",
         "Deep Learning requires significantly more computational resources and data than traditional ML",
         "The choice between ML and DL depends on data type, problem complexity, and available resources",
-        "Both approaches have complementary strengths and are often used together in real-world applications"
-      ]
+        "Both approaches have complementary strengths and are often used together in real-world applications",
+      ],
     },
     3: {
       id: 3,
       title: "Neural Networks Detective Story",
-      description: "An interactive demo created for a 'Communicating for Learning' assignment that explains neural networks through a detective-themed narrative and animated flip-card interactions. Breaks down the neural network process into intuitive steps: input, feature extraction, forward pass, output, and backpropagation.",
-      technologies: ["ChatGPT 5.1", "Interactive Storytelling", "Neural Networks"],
+      description:
+        "An interactive demo created for a 'Communicating for Learning' assignment that explains neural networks through a detective-themed narrative and animated flip-card interactions. Breaks down the neural network process into intuitive steps: input, feature extraction, forward pass, output, and backpropagation.",
+      technologies: [
+        "ChatGPT 5.1",
+        "Interactive Storytelling",
+        "Neural Networks",
+      ],
       link: "https://chatgpt.com/canvas/shared/691693dcdf588191876eac36efa7b83b",
       icon: "🕵️",
+      introduction: `Neural networks are one of the most powerful and widely used technologies in artificial intelligence, yet they remain abstract and difficult to understand for many people. The complexity of how neural networks process information—from receiving inputs through multiple layers to producing outputs and learning from feedback—can be intimidating. This challenge is particularly significant in educational contexts where clear communication of technical concepts is essential.
+
+This work connects to my professional goal of creating AI solutions that are not only technically sound but also accessible and understandable to diverse audiences.`,
+      objective: {
+        intro:
+          "The primary objective of this project was to create an interactive educational demo that explains neural networks in an accessible and engaging way, specifically:",
+        items: [
+          "Break down the neural network process into intuitive, digestible steps",
+          "Use storytelling and narrative frameworks to make abstract concepts more memorable",
+          "Create an interactive experience that engages learners through visual design and animations",
+          "Demonstrate the ability to communicate complex technical concepts clearly",
+          "Combine accurate AI/ML knowledge with effective educational design principles",
+        ],
+      },
       detailedDescription: `I created this interactive demo as part of my "Communicating for Learning" assignment, where the goal was to explain neural networks as simply and effectively as possible. I used ChatGPT 5.1 to help iterate on the concept, refine the storytelling, and shape the educational framing.
 
 The demo uses a detective-themed narrative and animated flip-card interactions to break the neural network process into small, intuitive steps (input, feature extraction, forward pass, output, and backpropagation). This artifact demonstrates my ability to combine accurate AI/ML concepts with engaging UI design and learning-centered communication.`,
@@ -181,10 +346,9 @@ The demo uses a detective-themed narrative and animated flip-card interactions t
         "ChatGPT 5.1 can be effectively used as a tool for iterating on concepts and refining educational content",
         "Combining accurate technical knowledge with learning-centered communication creates effective educational experiences",
         "UI design plays a crucial role in making complex information intuitive and engaging",
-        "The detective metaphor effectively bridges the gap between neural network processes and intuitive understanding"
-      ]
-    }
-    // Add more artifacts as needed
+        "The detective metaphor effectively bridges the gap between neural network processes and intuitive understanding",
+      ],
+    },
   };
 
   const artifact = artifactsData[id];
@@ -195,7 +359,10 @@ The demo uses a detective-themed narrative and animated flip-card interactions t
         <div className="artifact-not-found">
           <h1>Artifact Not Found</h1>
           <p>The artifact you're looking for doesn't exist.</p>
-          <button onClick={() => navigate('/artifacts')} className="back-button">
+          <button
+            onClick={() => navigate("/artifacts")}
+            className="back-button"
+          >
             ← Back to Artifacts
           </button>
         </div>
@@ -206,7 +373,7 @@ The demo uses a detective-themed narrative and animated flip-card interactions t
   return (
     <div className="artifact-detail-page">
       <div className="artifact-detail-header">
-        <button onClick={() => navigate('/artifacts')} className="back-button">
+        <button onClick={() => navigate("/artifacts")} className="back-button">
           ← Back to Artifacts
         </button>
         <div className="artifact-detail-title-section">
@@ -215,7 +382,9 @@ The demo uses a detective-themed narrative and animated flip-card interactions t
             <h1 className="artifact-detail-title">{artifact.title}</h1>
             <div className="artifact-detail-technologies">
               {artifact.technologies.map((tech, index) => (
-                <span key={index} className="tech-tag">{tech}</span>
+                <span key={index} className="tech-tag">
+                  {tech}
+                </span>
               ))}
             </div>
           </div>
@@ -223,36 +392,162 @@ The demo uses a detective-themed narrative and animated flip-card interactions t
       </div>
 
       <div className="artifact-detail-content">
-        {artifact.type === 'report' ? (
+        {artifact.type === "report" ? (
           <>
             <div className="project-link-section">
-              <a 
-                href={artifact.link} 
-                target="_blank" 
-                rel="noopener noreferrer" 
+              <a
+                href={artifact.link}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="project-link-button"
               >
                 View Full Report →
               </a>
             </div>
 
+            {artifact.introduction && (
+              <section className="artifact-section">
+                <h2
+                  onClick={() => toggleSection("introduction")}
+                  className="collapsible-header"
+                >
+                  Introduction
+                  <span
+                    className={`collapse-icon ${collapsedSections.introduction ? "collapsed" : ""}`}
+                  >
+                    ▼
+                  </span>
+                </h2>
+                {!collapsedSections.introduction && (
+                  <p className="artifact-overview">
+                    {renderMarkdownText(artifact.introduction)}
+                  </p>
+                )}
+              </section>
+            )}
+
+            {artifact.objective && (
+              <section className="artifact-section">
+                <h2
+                  onClick={() => toggleSection("objective")}
+                  className="collapsible-header"
+                >
+                  Objective
+                  <span
+                    className={`collapse-icon ${collapsedSections.objective ? "collapsed" : ""}`}
+                  >
+                    ▼
+                  </span>
+                </h2>
+                {!collapsedSections.objective && (
+                  <div className="artifact-overview">
+                    {typeof artifact.objective === "string" ? (
+                      <p>{artifact.objective}</p>
+                    ) : (
+                      <>
+                        <p>{renderMarkdownText(artifact.objective.intro)}</p>
+                        <ol className="objective-list">
+                          {artifact.objective.items.map((item, index) => (
+                            <li key={index}>{renderMarkdownText(item)}</li>
+                          ))}
+                        </ol>
+                      </>
+                    )}
+                  </div>
+                )}
+              </section>
+            )}
+
             <section className="artifact-section">
-              <h2 onClick={() => toggleSection('overview')} className="collapsible-header">
+              <h2
+                onClick={() => toggleSection("overview")}
+                className="collapsible-header"
+              >
                 Report Overview
-                <span className={`collapse-icon ${collapsedSections.overview ? 'collapsed' : ''}`}>
+                <span
+                  className={`collapse-icon ${collapsedSections.overview ? "collapsed" : ""}`}
+                >
                   ▼
                 </span>
               </h2>
               {!collapsedSections.overview && (
-                <p className="artifact-overview">{artifact.detailedDescription}</p>
+                <p className="artifact-overview">
+                  {renderMarkdownText(artifact.detailedDescription)}
+                </p>
               )}
             </section>
 
+            {artifact.process && (
+              <section className="artifact-section">
+                <h2
+                  onClick={() => toggleSection("process")}
+                  className="collapsible-header"
+                >
+                  Process
+                  <span
+                    className={`collapse-icon ${collapsedSections.process ? "collapsed" : ""}`}
+                  >
+                    ▼
+                  </span>
+                </h2>
+                {!collapsedSections.process && (
+                  <p className="artifact-overview">{artifact.process}</p>
+                )}
+              </section>
+            )}
+
+            {artifact.toolsAndTechnologies && (
+              <section className="artifact-section">
+                <h2
+                  onClick={() => toggleSection("tools")}
+                  className="collapsible-header"
+                >
+                  Tools & Technologies
+                  <span
+                    className={`collapse-icon ${collapsedSections.tools ? "collapsed" : ""}`}
+                  >
+                    ▼
+                  </span>
+                </h2>
+                {!collapsedSections.tools && (
+                  <p className="artifact-overview">
+                    {renderMarkdownText(artifact.toolsAndTechnologies)}
+                  </p>
+                )}
+              </section>
+            )}
+
+            {artifact.valueProposition && (
+              <section className="artifact-section">
+                <h2
+                  onClick={() => toggleSection("valueProp")}
+                  className="collapsible-header"
+                >
+                  Value Proposition
+                  <span
+                    className={`collapse-icon ${collapsedSections.valueProp ? "collapsed" : ""}`}
+                  >
+                    ▼
+                  </span>
+                </h2>
+                {!collapsedSections.valueProp && (
+                  <p className="artifact-overview">
+                    {renderMarkdownText(artifact.valueProposition)}
+                  </p>
+                )}
+              </section>
+            )}
+
             {artifact.comparison && (
               <section className="artifact-section">
-                <h2 onClick={() => toggleSection('comparison')} className="collapsible-header">
+                <h2
+                  onClick={() => toggleSection("comparison")}
+                  className="collapsible-header"
+                >
                   Machine Learning vs Deep Learning
-                  <span className={`collapse-icon ${collapsedSections.comparison ? 'collapsed' : ''}`}>
+                  <span
+                    className={`collapse-icon ${collapsedSections.comparison ? "collapsed" : ""}`}
+                  >
                     ▼
                   </span>
                 </h2>
@@ -283,9 +578,14 @@ The demo uses a detective-themed narrative and animated flip-card interactions t
 
             {artifact.learnings && (
               <section className="artifact-section">
-                <h2 onClick={() => toggleSection('learnings')} className="collapsible-header">
+                <h2
+                  onClick={() => toggleSection("learnings")}
+                  className="collapsible-header"
+                >
                   Key Learnings
-                  <span className={`collapse-icon ${collapsedSections.learnings ? 'collapsed' : ''}`}>
+                  <span
+                    className={`collapse-icon ${collapsedSections.learnings ? "collapsed" : ""}`}
+                  >
                     ▼
                   </span>
                 </h2>
@@ -298,37 +598,310 @@ The demo uses a detective-themed narrative and animated flip-card interactions t
                 )}
               </section>
             )}
+
+            {artifact.references && artifact.references.length > 0 && (
+              <section className="artifact-section">
+                <h2
+                  onClick={() => toggleSection("references")}
+                  className="collapsible-header"
+                >
+                  References
+                  <span
+                    className={`collapse-icon ${collapsedSections.references ? "collapsed" : ""}`}
+                  >
+                    ▼
+                  </span>
+                </h2>
+                {!collapsedSections.references && (
+                  <ul className="references-list">
+                    {artifact.references.map((ref, index) => (
+                      <li key={index} className="reference-item">
+                        <a
+                          href={ref.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="reference-link"
+                        >
+                          {ref.title}
+                        </a>
+                        <p className="reference-description">
+                          {ref.description}
+                        </p>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </section>
+            )}
           </>
         ) : (
           <>
             <div className="project-link-section">
-              <a 
-                href={artifact.link} 
-                target="_blank" 
-                rel="noopener noreferrer" 
+              <a
+                href={artifact.link}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="project-link-button"
               >
                 Open Project →
               </a>
             </div>
 
+            {artifact.introduction && (
+              <section className="artifact-section">
+                <h2
+                  onClick={() => toggleSection("introduction")}
+                  className="collapsible-header"
+                >
+                  Introduction
+                  <span
+                    className={`collapse-icon ${collapsedSections.introduction ? "collapsed" : ""}`}
+                  >
+                    ▼
+                  </span>
+                </h2>
+                {!collapsedSections.introduction && (
+                  <p className="artifact-overview">
+                    {renderMarkdownText(artifact.introduction)}
+                  </p>
+                )}
+              </section>
+            )}
+
+            {artifact.objective && (
+              <section className="artifact-section">
+                <h2
+                  onClick={() => toggleSection("objective")}
+                  className="collapsible-header"
+                >
+                  Objective
+                  <span
+                    className={`collapse-icon ${collapsedSections.objective ? "collapsed" : ""}`}
+                  >
+                    ▼
+                  </span>
+                </h2>
+                {!collapsedSections.objective && (
+                  <div className="artifact-overview">
+                    {typeof artifact.objective === "string" ? (
+                      <p>{artifact.objective}</p>
+                    ) : (
+                      <>
+                        <p>{renderMarkdownText(artifact.objective.intro)}</p>
+                        <ol className="objective-list">
+                          {artifact.objective.items.map((item, index) => (
+                            <li key={index}>{renderMarkdownText(item)}</li>
+                          ))}
+                        </ol>
+                      </>
+                    )}
+                  </div>
+                )}
+              </section>
+            )}
+
             <section className="artifact-section">
-              <h2 onClick={() => toggleSection('overview')} className="collapsible-header">
+              <h2
+                onClick={() => toggleSection("overview")}
+                className="collapsible-header"
+              >
                 Project Overview
-                <span className={`collapse-icon ${collapsedSections.overview ? 'collapsed' : ''}`}>
+                <span
+                  className={`collapse-icon ${collapsedSections.overview ? "collapsed" : ""}`}
+                >
                   ▼
                 </span>
               </h2>
               {!collapsedSections.overview && (
-                <p className="artifact-overview">{artifact.detailedDescription}</p>
+                <div>
+                  <p className="artifact-overview">
+                    {artifact.detailedDescription}
+                  </p>
+                  {artifact.features && (
+                    <div className="features-section">
+                      <h3 className="subsection-title">Key Features</h3>
+                      <ul className="artifact-list">
+                        {artifact.features.map((feature, index) => (
+                          <li key={index}>{feature}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                </div>
               )}
             </section>
 
+            {artifact.process && (
+              <section className="artifact-section">
+                <h2
+                  onClick={() => toggleSection("process")}
+                  className="collapsible-header"
+                >
+                  Process
+                  <span
+                    className={`collapse-icon ${collapsedSections.process ? "collapsed" : ""}`}
+                  >
+                    ▼
+                  </span>
+                </h2>
+                {!collapsedSections.process && (
+                  <div>
+                    {typeof artifact.process === "string" ? (
+                      <p className="artifact-overview">
+                        {renderMarkdownText(artifact.process)}
+                      </p>
+                    ) : (
+                      <div className="process-content">
+                        <p className="artifact-overview">
+                          {artifact.process.intro}
+                        </p>
+                        {artifact.process.sections.map(
+                          (section, sectionIndex) => (
+                            <div key={sectionIndex} className="process-section">
+                              <h3 className="process-section-title">
+                                {section.title}
+                              </h3>
+                              {section.content && (
+                                <p className="process-section-content">
+                                  {renderMarkdownText(section.content)}
+                                </p>
+                              )}
+                              {section.items && (
+                                <ol className="process-list">
+                                  {section.items.map((item, itemIndex) => (
+                                    <li
+                                      key={itemIndex}
+                                      className="process-list-item"
+                                    >
+                                      <strong>{item.title}:</strong>{" "}
+                                      {item.description}
+                                      {item.subItems && (
+                                        <ul className="process-sublist">
+                                          {item.subItems.map(
+                                            (subItem, subIndex) => (
+                                              <li key={subIndex}>{subItem}</li>
+                                            ),
+                                          )}
+                                        </ul>
+                                      )}
+                                    </li>
+                                  ))}
+                                </ol>
+                              )}
+                            </div>
+                          ),
+                        )}
+                      </div>
+                    )}
+                    {artifact.challenges && (
+                      <div className="challenges-section">
+                        <h3 className="subsection-title">
+                          Challenges Encountered
+                        </h3>
+                        <ul className="artifact-list">
+                          {artifact.challenges.map((challenge, index) => (
+                            <li key={index}>{challenge}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+                  </div>
+                )}
+              </section>
+            )}
+
+            {artifact.toolsAndTechnologies && (
+              <section className="artifact-section">
+                <h2
+                  onClick={() => toggleSection("tools")}
+                  className="collapsible-header"
+                >
+                  Tools & Technologies
+                  <span
+                    className={`collapse-icon ${collapsedSections.tools ? "collapsed" : ""}`}
+                  >
+                    ▼
+                  </span>
+                </h2>
+                {!collapsedSections.tools && (
+                  <p className="artifact-overview">
+                    {renderMarkdownText(artifact.toolsAndTechnologies)}
+                  </p>
+                )}
+              </section>
+            )}
+
+            {artifact.valueProposition && (
+              <section className="artifact-section">
+                <h2
+                  onClick={() => toggleSection("valueProp")}
+                  className="collapsible-header"
+                >
+                  Value Proposition
+                  <span
+                    className={`collapse-icon ${collapsedSections.valueProp ? "collapsed" : ""}`}
+                  >
+                    ▼
+                  </span>
+                </h2>
+                {!collapsedSections.valueProp && (
+                  <p className="artifact-overview">
+                    {renderMarkdownText(artifact.valueProposition)}
+                  </p>
+                )}
+              </section>
+            )}
+
+            {artifact.labLog && artifact.labLog.length > 0 && (
+              <section className="artifact-section">
+                <h2
+                  onClick={() => toggleSection("labLog")}
+                  className="collapsible-header"
+                >
+                  Lab Log
+                  <span
+                    className={`collapse-icon ${collapsedSections.labLog ? "collapsed" : ""}`}
+                  >
+                    ▼
+                  </span>
+                </h2>
+                {!collapsedSections.labLog && (
+                  <div className="lab-log-table">
+                    <table>
+                      <thead>
+                        <tr>
+                          <th>Iteration</th>
+                          <th>Instruction</th>
+                          <th>Results</th>
+                          <th>Change</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {artifact.labLog.map((entry, index) => (
+                          <tr key={index}>
+                            <td>{entry.iteration}</td>
+                            <td>{entry.instruction}</td>
+                            <td>{entry.results}</td>
+                            <td>{entry.Change}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                )}
+              </section>
+            )}
+
             {artifact.learnings && (
               <section className="artifact-section">
-                <h2 onClick={() => toggleSection('learnings')} className="collapsible-header">
+                <h2
+                  onClick={() => toggleSection("learnings")}
+                  className="collapsible-header"
+                >
                   Key Learnings
-                  <span className={`collapse-icon ${collapsedSections.learnings ? 'collapsed' : ''}`}>
+                  <span
+                    className={`collapse-icon ${collapsedSections.learnings ? "collapsed" : ""}`}
+                  >
                     ▼
                   </span>
                 </h2>
@@ -336,6 +909,41 @@ The demo uses a detective-themed narrative and animated flip-card interactions t
                   <ul className="artifact-list">
                     {artifact.learnings.map((learning, index) => (
                       <li key={index}>{learning}</li>
+                    ))}
+                  </ul>
+                )}
+              </section>
+            )}
+
+            {artifact.references && artifact.references.length > 0 && (
+              <section className="artifact-section">
+                <h2
+                  onClick={() => toggleSection("references")}
+                  className="collapsible-header"
+                >
+                  References
+                  <span
+                    className={`collapse-icon ${collapsedSections.references ? "collapsed" : ""}`}
+                  >
+                    ▼
+                  </span>
+                </h2>
+                {!collapsedSections.references && (
+                  <ul className="references-list">
+                    {artifact.references.map((ref, index) => (
+                      <li key={index} className="reference-item">
+                        <a
+                          href={ref.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="reference-link"
+                        >
+                          {ref.title}
+                        </a>
+                        <p className="reference-description">
+                          {ref.description}
+                        </p>
+                      </li>
                     ))}
                   </ul>
                 )}
