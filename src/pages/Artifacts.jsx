@@ -35,6 +35,18 @@ function Artifacts() {
       link: "https://chatgpt.com/canvas/shared/691693dcdf588191876eac36efa7b83b",
       icon: "🕵️",
     },
+    {
+      id: 4,
+      title: "Problems of Confusion: AI Bias in Clinical Diagnostic Imaging",
+      description:
+        "A critical reflection on algorithmic bias in medical imaging AI systems, addressing the importance of clear communication and ethical leadership in ensuring equitable diagnostic accuracy across diverse patient populations.",
+      technologies: [
+        "Gemini 3",
+        "Ethical AI",
+      ],
+      icon: "🏥",
+      type: "reflection",
+    },
   ];
 
   return (

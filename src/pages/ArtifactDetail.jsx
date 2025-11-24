@@ -349,6 +349,115 @@ The demo uses a detective-themed narrative and animated flip-card interactions t
         "The detective metaphor effectively bridges the gap between neural network processes and intuitive understanding",
       ],
     },
+    4: {
+      id: 4,
+      title: "Problems of Confusion: AI Bias in Clinical Diagnostic Imaging",
+      description:
+        "A critical reflection on algorithmic bias in medical imaging AI systems, addressing the importance of clear communication and ethical leadership in ensuring equitable diagnostic accuracy across diverse patient populations.",
+      technologies: [
+        "Gemini 3",
+        "Ethical AI",
+      ],
+      icon: "🏥",
+      type: "reflection",
+      introduction: `In the realm of leadership, effective communication is paramount. Poor communication can lead to misunderstandings, confusion, and ultimately hinder progress and learning. This reflection addresses the critical importance of clear communication and ethical leadership in the context of AI systems used in clinical diagnostic imaging.
+
+Algorithmic bias represents a systemic risk to patient safety and diagnostic accuracy. Leadership in this field requires a commitment to ensuring every diagnosis is based on impartial and globally representative data. Eliminating bias is crucial to ensuring safety and high-quality care, regardless of a patient's demographic background or geographic location.
+
+This work connects to my professional goals by demonstrating my commitment to ethical AI development and clear communication about the responsibilities and challenges inherent in deploying AI systems in critical healthcare contexts.`,
+      objective: {
+        intro:
+          "This reflection assignment focused on applying biblical thinking to personal situations and identifying examples of problem-solving communication. Specifically, I aimed to:",
+        items: [
+          "Reflect on communication style and how to make messages clearer and more effective",
+          "Think about times when poor communication caused confusion and how to prevent such issues",
+          "Apply these principles to the field of AI in clinical diagnostic imaging",
+          "Develop concrete strategies to address algorithmic bias and ensure equitable healthcare outcomes",
+          "Demonstrate full ownership of the reflection process with deeply personal insights",
+        ],
+      },
+      detailedDescription: `This artifact represents my response to the "Problems of Confusion" assignment, which explored the importance of clear communication in leadership through the lens of Scripture. I chose to apply these principles to my field of interest: AI in Clinical Diagnostic Imaging.
+
+The reflection addresses how poor communication and lack of clarity can lead to systemic problems—specifically, how algorithmic bias in medical imaging AI systems can result from unclear communication about data requirements, training processes, and deployment limitations. I developed a personal value statement and concrete strategies to address these challenges, demonstrating my commitment to ethical AI leadership.`,
+      valueStatement: {
+        field: "AI in Clinical Diagnostic Imaging",
+        statement:
+          "In medical imaging, algorithmic bias represents a systemic risk to patient safety and diagnostic accuracy. Leadership in this field requires a commitment to ensuring every diagnosis is based on impartial and globally representative data. Eliminating bias is crucial to ensuring safety and high-quality care, regardless of a patient's demographic background or geographic location.",
+      },
+      strategies: [
+        {
+          title: "Eliminate Data Representation Gaps",
+          items: [
+            {
+              title: "Establish Global Data Partnerships",
+              description:
+                "Instead of relying on data from a single region, collect imaging datasets (such as X-rays and CT scans) from international partners to represent diverse ethnic and socioeconomic groups. This prevents the model from failing when treating underrepresented populations.",
+            },
+            {
+              title: "Mandate Demographic Labeling",
+              description:
+                "Systematically label training data with patient demographics (e.g., age, sex) to ensure accurate representation. This allows for explicit testing to prove the model performs equally well across all groups, rather than assuming fairness.",
+            },
+          ],
+        },
+        {
+          title: "Mitigate Human Error in Training",
+          items: [
+            {
+              title: "Implement Consensus Labeling",
+              description:
+                "Since human interpretation can be subjective, require multiple radiologists from diverse professional backgrounds to agree on a diagnosis before it is used to train the AI. This minimizes the risk of a single person's bias becoming part of the model.",
+            },
+            {
+              title: "Institute Blind Reviews",
+              description:
+                "During the testing phase, shield human reviewers from patient demographic information. This prevents confirmation bias from influencing how the AI's success is evaluated.",
+            },
+          ],
+        },
+        {
+          title: "Audit and Monitor for Equity",
+          items: [
+            {
+              title: "Deploy Continuous Monitoring",
+              description:
+                "Utilize real-time dashboards to track diagnostic accuracy across specific patient subgroups. If the system performance drops for any specific group (due to model drift), immediate alerts must trigger a safety review.",
+            },
+            {
+              title: "Commission External Audits",
+              description:
+                "Engage independent, third-party experts to audit the AI for fairness before deployment. External reviewers are necessary to identify biases that internal development teams often overlook.",
+            },
+          ],
+        },
+        {
+          title: "Ensure Accessibility and Appropriate Use",
+          items: [
+            {
+              title: "Prioritize Low-Resource Compatibility",
+              description:
+                "Develop models that can maintain high accuracy even on older hardware or lower-quality images. This ensures that safety improvements benefit under-resourced clinics, not just wealthy hospitals.",
+            },
+            {
+              title: "Mandate Limitation Training",
+              description:
+                "Provide compulsory training for clinicians that explicitly details where the AI may fail, ensuring transparency and accountability. This prevents over-reliance on the tool and ensures doctors prioritize their own clinical judgment when necessary.",
+            },
+          ],
+        },
+      ],
+      aiDisclosure:
+        "I used Gemini 3 to brainstorm field-specific strategies and refine the content. Specifically, I directed the AI to simplify complex terminology. I reviewed the final output to ensure it accurately reflects my intent and meets the requirements of the assignment.",
+      learnings: [
+        "Clear communication about AI limitations and biases is essential for ethical deployment in healthcare",
+        "Algorithmic bias in medical imaging can have life-threatening consequences if not addressed proactively",
+        "Leadership in AI requires systematic approaches to ensure equity across diverse patient populations",
+        "Multiple layers of oversight—from data collection to deployment—are necessary to prevent bias",
+        "Transparency about AI capabilities and limitations is crucial for building trust with clinicians and patients",
+        "Global representation in training data is not optional but essential for equitable healthcare outcomes",
+        "External audits and continuous monitoring are critical safeguards against bias that internal teams might miss",
+      ],
+    },
   };
 
   const artifact = artifactsData[id];
@@ -392,7 +501,134 @@ The demo uses a detective-themed narrative and animated flip-card interactions t
       </div>
 
       <div className="artifact-detail-content">
-        {artifact.type === "report" ? (
+        {artifact.type === "reflection" ? (
+          <>
+            {artifact.introduction && (
+              <section className="artifact-section">
+                <h2
+                  onClick={() => toggleSection("introduction")}
+                  className="collapsible-header"
+                >
+                  Introduction
+                  <span
+                    className={`collapse-icon ${collapsedSections.introduction ? "collapsed" : ""}`}
+                  >
+                    ▼
+                  </span>
+                </h2>
+                {!collapsedSections.introduction && (
+                  <p className="artifact-overview">
+                    {renderMarkdownText(artifact.introduction)}
+                  </p>
+                )}
+              </section>
+            )}
+
+            {artifact.valueStatement && (
+              <section className="artifact-section">
+                <h2
+                  onClick={() => toggleSection("valueProp")}
+                  className="collapsible-header"
+                >
+                  Personal Value Statement
+                  <span
+                    className={`collapse-icon ${collapsedSections.valueProp ? "collapsed" : ""}`}
+                  >
+                    ▼
+                  </span>
+                </h2>
+                {!collapsedSections.valueProp && (
+                  <div className="artifact-overview">
+                    <p>
+                      <strong>Field:</strong> {artifact.valueStatement.field}
+                    </p>
+                    <p>{renderMarkdownText(artifact.valueStatement.statement)}</p>
+                  </div>
+                )}
+              </section>
+            )}
+
+            {artifact.strategies && artifact.strategies.length > 0 && (
+              <section className="artifact-section">
+                <h2
+                  onClick={() => toggleSection("process")}
+                  className="collapsible-header"
+                >
+                  Strategies to Fulfill This Value
+                  <span
+                    className={`collapse-icon ${collapsedSections.process ? "collapsed" : ""}`}
+                  >
+                    ▼
+                  </span>
+                </h2>
+                {!collapsedSections.process && (
+                  <div className="process-content">
+                    {artifact.strategies.map((strategy, strategyIndex) => (
+                      <div key={strategyIndex} className="process-section">
+                        <h3 className="process-section-title">
+                          {strategy.title}
+                        </h3>
+                        {strategy.items && (
+                          <ul className="artifact-list">
+                            {strategy.items.map((item, itemIndex) => (
+                              <li key={itemIndex} className="process-list-item">
+                                <strong>{item.title}:</strong> {item.description}
+                              </li>
+                            ))}
+                          </ul>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </section>
+            )}
+
+            {artifact.aiDisclosure && (
+              <section className="artifact-section">
+                <h2
+                  onClick={() => toggleSection("tools")}
+                  className="collapsible-header"
+                >
+                  AI Disclosure
+                  <span
+                    className={`collapse-icon ${collapsedSections.tools ? "collapsed" : ""}`}
+                  >
+                    ▼
+                  </span>
+                </h2>
+                {!collapsedSections.tools && (
+                  <p className="artifact-overview">
+                    {renderMarkdownText(artifact.aiDisclosure)}
+                  </p>
+                )}
+              </section>
+            )}
+
+            {artifact.learnings && (
+              <section className="artifact-section">
+                <h2
+                  onClick={() => toggleSection("learnings")}
+                  className="collapsible-header"
+                >
+                  Key Learnings
+                  <span
+                    className={`collapse-icon ${collapsedSections.learnings ? "collapsed" : ""}`}
+                  >
+                    ▼
+                  </span>
+                </h2>
+                {!collapsedSections.learnings && (
+                  <ul className="artifact-list">
+                    {artifact.learnings.map((learning, index) => (
+                      <li key={index}>{learning}</li>
+                    ))}
+                  </ul>
+                )}
+              </section>
+            )}
+          </>
+        ) : artifact.type === "report" ? (
           <>
             <div className="project-link-section">
               <a
