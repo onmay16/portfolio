@@ -40,6 +40,8 @@ function ArtifactDetail() {
     process: true,
     tools: true,
     valueProp: true,
+    uniqueValue: true,
+    relevance: true,
     labLog: true,
     learnings: true,
     references: true,
@@ -56,6 +58,174 @@ function ArtifactDetail() {
   const artifactsData = {
     1: {
       id: 1,
+      title: "AI & ML Timeline",
+      description:
+        "A comprehensive timeline documenting the evolution of Artificial Intelligence and Machine Learning from foundational concepts to modern breakthroughs. Created during residency to understand the historical context and progression of AI/ML technologies.",
+      technologies: ["Research", "Historical Analysis", "Timeline Visualization"],
+      icon: "📅",
+      type: "timeline",
+      introduction: `Understanding the historical evolution of Artificial Intelligence and Machine Learning is fundamental for anyone entering the field. The journey from early theoretical concepts to today's transformative applications spans decades of research, breakthroughs, and paradigm shifts. This timeline provides a comprehensive overview of key milestones, innovations, and turning points that have shaped modern AI/ML.
+
+This work connects to my professional goals by establishing a foundational understanding of how AI/ML has evolved, which is essential for contextualizing current technologies, understanding their limitations, and anticipating future directions. By studying the progression of ideas and innovations, I can better appreciate the iterative nature of technological advancement and the importance of building on previous research.`,
+      objective: {
+        intro:
+          "The primary objective of this timeline was to create a comprehensive historical overview of AI and ML development, specifically:",
+        items: [
+          "Document key milestones and breakthroughs in AI/ML history from foundational concepts to modern applications",
+          "Identify major paradigm shifts and technological innovations that shaped the field",
+          "Understand the relationship between theoretical advances and practical applications",
+          "Contextualize current AI/ML technologies within their historical development",
+          "Provide a reference framework for understanding how the field has evolved over time",
+        ],
+      },
+      detailedDescription: `This timeline was created during residency as a foundational learning artifact to understand the historical context of Artificial Intelligence and Machine Learning. Titled "Combined AI Timeline (1943-2025): Major eras and tools in AI and AI-for-UI," it documents the evolution of the field from early theoretical foundations through major breakthroughs, AI winters, and the current era of deep learning and generative AI, with a particular focus on AI-driven UI creation.
+
+The timeline spans from 1943 to 2025, covering 13 major eras that trace the progression from mathematical and philosophical roots to modern multimodal AI systems. It includes both general AI/ML developments and the specific evolution of AI tools for user interface creation, showing how AI has transformed from theoretical concepts to practical tools that reshape how we build digital experiences.
+
+This artifact demonstrates my commitment to understanding not just current technologies, but the historical context that informs their development and the patterns of innovation that continue to shape the field.`,
+      timelineData: [
+        {
+          era: "Early Foundations",
+          dateRange: "1943-1955",
+          description: "McCulloch-Pitts neuron, Turing Test, Logic Theorist - the mathematical and philosophical roots of AI."
+        },
+        {
+          era: "The Birth of AI as a Field",
+          dateRange: "1956-1969",
+          description: "Dartmouth Workshop, Perceptron, ELIZA - optimism around symbolic reasoning and language understanding."
+        },
+        {
+          era: "First AI Winter",
+          dateRange: "1970-1980",
+          description: "Funding cuts and computational limits after early neural nets failed to deliver practical results."
+        },
+        {
+          era: "Expert Systems Boom",
+          dateRange: "1980-1987",
+          description: "Rule-based systems like XCON achieved commercial success but were costly to maintain."
+        },
+        {
+          era: "Second AI Winter",
+          dateRange: "1987-1993",
+          description: "Collapse of Lisp machines and overhyped expectations led to another funding drought."
+        },
+        {
+          era: "Machine Learning Renaissance",
+          dateRange: "1993-2010",
+          description: "Statistical AI, Bayesian networks, SVMs, and IBM's Deep Blue defined this data-driven era."
+        },
+        {
+          era: "Deep Learning Revolution",
+          dateRange: "2010-2016",
+          description: "ImageNet, GANs, and AlphaGo - neural networks outperformed humans in key tasks."
+        },
+        {
+          era: "Foundation Models",
+          dateRange: "2017-2020",
+          description: "Transformers, GPT, BERT, and multimodal models emerged, enabling general-purpose AI."
+        },
+        {
+          era: "Foundations and Early Assistants",
+          dateRange: "2020-2021",
+          description: "GitHub Copilot (OpenAI Codex): first major AI pair programmer for React/Vue/HTML/CSS. Figma Plugins with AI: content fillers, color palette generators, layout auto-suggesters. Framer & Webflow: early ML-based layout alignment and auto-animation. TensorFlow.js & RunwayML: brought pose/style transfer to browser creative coding."
+        },
+        {
+          era: "Design-to-Code Automation",
+          dateRange: "2022",
+          description: "Figma → Code converters (Locofy, Anima, Builder.io) output clean React/Vue. OpenAI Codex API: 'generate HTML/React component from prompt.' Canva & Adobe Express: background removal, smart resize via AI segmentation. Tailwind UI & shadcn/ui: AI-based component generation ('create a responsive navbar')."
+        },
+        {
+          era: "Generative UIs & NL-driven Frontends",
+          dateRange: "2023",
+          description: "ChatGPT + Code Interpreter: natural-language full-stack prototyping. Vercel + Next.js AI SDK: chat-based UI components & RAG integration. Galileo AI, Uizard, Builder.io AI: text-to-UI → editable React/Vue components. Midjourney & Stable Diffusion integrated into creative frontends. Figma FigJam AI: design summarizing and auto-diagramming."
+        },
+        {
+          era: "Full Workflow Integration",
+          dateRange: "2024",
+          description: "Vercel v2 + GPT-4o: real-time multimodal UIs in React. Figma Dev Mode + AI Inspector: auto-doc props/CSS/responsiveness. Framer AI 2.0: one-sentence → full site generation. Locofy Lightning & Anima 4.0: design → React/Vue/Next.js (TypeScript). Notion, Webflow, Wix AI: conversational app builders."
+        },
+        {
+          era: "Intelligent, Multimodal Creation",
+          dateRange: "2025",
+          description: "Vercel AI SDK (2025): multimodal UI agents (text/voice/vision). Figma AI Copilot (beta): design suggestions, auto-layout, accessibility, brand tone. React Server Components + AI: inference and prefetching for personalization. OpenAI Canvas + codegen UI: NL → React/Vue/Svelte. Creative AI spans image, video, motion, and code (Runway Gen-3, Pika, Luma)."
+        }
+      ],
+      process: {
+        intro:
+          "The timeline was developed through systematic research and organization of historical information:",
+        sections: [
+          {
+            title: "Research Phase",
+            content:
+              "Conducted comprehensive research on AI/ML history, identifying key milestones, breakthroughs, and paradigm shifts from multiple authoritative sources.",
+          },
+          {
+            title: "Organization",
+            content:
+              "Organized information chronologically, grouping related developments and identifying major periods in AI/ML evolution.",
+          },
+          {
+            title: "Verification",
+            content:
+              "Cross-referenced information from multiple sources to ensure accuracy and completeness of historical events and dates.",
+          },
+        ],
+      },
+      toolsAndTechnologies: `This timeline was created using research methodologies and historical analysis techniques. The primary tools and approaches included:
+
+- **Research Tools**: Academic databases, historical archives, and authoritative AI/ML literature
+- **Organization Methods**: Chronological mapping and thematic categorization
+- **Visualization**: Timeline structure to represent temporal progression of innovations
+- **Analysis Framework**: Identification of patterns, paradigm shifts, and relationships between developments
+
+The artifact demonstrates research skills, critical analysis of historical information, and the ability to synthesize complex information into a coherent narrative.`,
+      valueProposition: `This timeline provides unique value by:
+
+- **Foundational Knowledge**: Establishes essential historical context for understanding current AI/ML technologies
+- **Pattern Recognition**: Reveals patterns of innovation, challenges, and breakthroughs that inform future development
+- **Contextual Understanding**: Helps understand why certain approaches succeeded or failed, and how lessons from the past inform current practices
+- **Educational Resource**: Serves as a comprehensive reference for understanding the evolution of AI/ML concepts and technologies
+- **Strategic Insight**: Provides perspective on how the field has evolved, which can inform decisions about future directions and opportunities
+
+This artifact demonstrates my commitment to deep, foundational learning and understanding the broader context of the technologies I work with.`,
+      uniqueValue: `This timeline offers unique value by providing a comprehensive, organized view of AI/ML history that connects theoretical foundations to practical applications. It reveals how the field has evolved through cycles of innovation, challenges, and breakthroughs, offering insights that are essential for anyone serious about understanding AI/ML beyond surface-level knowledge.
+
+The timeline demonstrates my approach to learning: starting with foundational understanding before diving into specific technologies, recognizing the importance of historical context, and appreciating how past innovations inform current and future developments.`,
+      relevance: `This timeline is highly relevant for:
+
+- **AI/ML Students**: Provides essential historical context and foundational knowledge
+- **Practitioners**: Helps understand why certain approaches exist and how they evolved
+- **Researchers**: Offers context for understanding current research directions and identifying gaps
+- **Decision Makers**: Provides perspective on patterns of innovation and adoption in the field
+- **Educators**: Serves as a comprehensive reference for teaching AI/ML history
+
+Understanding the history of AI/ML is crucial for making informed decisions about current technologies and anticipating future developments.`,
+      learnings: [
+        "AI/ML development has occurred in cycles of innovation, enthusiasm, challenges, and renewed progress",
+        "Major breakthroughs often built on decades of foundational research and incremental improvements",
+        "The field has evolved from symbolic AI to statistical approaches to deep learning, each addressing limitations of previous paradigms",
+        "AI winters taught important lessons about managing expectations and the importance of practical applications",
+        "Current AI capabilities represent the culmination of decades of research, not sudden breakthroughs",
+        "Understanding historical context is essential for appreciating current technologies and anticipating future directions",
+        "The field continues to evolve, with each era building on previous innovations while addressing new challenges",
+      ],
+      references: [
+        {
+          title: "A Brief History of Artificial Intelligence",
+          url: "https://www.ibm.com/topics/artificial-intelligence",
+          description:
+            "IBM's overview of AI history from early concepts to modern applications.",
+        },
+        {
+          title: "The History of Machine Learning",
+          url: "https://www.datacamp.com/blog/history-of-machine-learning",
+          description:
+            "Comprehensive timeline of machine learning development and key milestones.",
+        },
+      ],
+    },
+    2: {
+      id: 2,
       title: "AI Job Hunting Assistant Lab",
       description:
         "A team-based exploration of Google's Gemini tool to design an interactive AI Job Hunting Assistant that helps users find relevant job openings based on their profile including job type, years of experience, industry, and location.",
@@ -210,9 +380,21 @@ While this doesn't represent a complete functional product, our primary focus wa
             "Specified not to use Google search for URLs and to return only verified application pages.",
         },
       ],
+      toolsAndTechnologies: `This lab utilized the following tools and technologies:
+
+- **Google Gemini**: The primary AI model used for building the job hunting assistant. We experimented with both Gemini Flash and Gemini Pro environments to compare performance and accuracy.
+
+- **Prompt Engineering**: Core methodology for iteratively refining the assistant's behavior. We developed and tested seven distinct prompt iterations, each building on lessons learned from previous versions.
+
+- **Collaborative Development**: Team-based approach using shared documentation and systematic testing protocols to refine the assistant's capabilities.
+
+The project demonstrated hands-on experience with modern AI tools, iterative prompt design, and systematic testing methodologies.`,
+      valueProposition: `This project demonstrates the practical application of prompt engineering and iterative AI development. It showcases how systematic refinement of instructions can significantly improve AI assistant performance, from initial broad results to precise, actionable job recommendations.
+
+The lab provides value by illustrating the real-world process of developing AI solutions: starting with a clear objective, iterating through multiple versions, addressing specific challenges, and achieving measurable improvements. This hands-on experience is directly applicable to developing production AI applications.`,
     },
-    2: {
-      id: 2,
+    3: {
+      id: 3,
       title: "Machine Learning vs Deep Learning Report",
       description:
         "A comparative analysis report exploring the differences, applications, and relationships between Machine Learning and Deep Learning methodologies.",
@@ -309,9 +491,21 @@ The analysis delves into the technical foundations of both approaches, examining
         "The choice between ML and DL depends on data type, problem complexity, and available resources",
         "Both approaches have complementary strengths and are often used together in real-world applications",
       ],
+      toolsAndTechnologies: `This report was created using the following tools and approaches:
+
+- **Research Methodology**: Systematic analysis of academic literature, industry white papers, and authoritative sources on Machine Learning and Deep Learning.
+
+- **Comparative Analysis Framework**: Structured approach to comparing ML and DL across multiple dimensions including data requirements, computational resources, interpretability, and applications.
+
+- **Documentation Tools**: Professional report formatting and presentation to clearly communicate complex technical concepts.
+
+The report demonstrates research skills, analytical thinking, and the ability to synthesize complex information into clear, actionable insights.`,
+      valueProposition: `This report provides clear, actionable guidance on when to use Machine Learning versus Deep Learning approaches. It helps practitioners make informed decisions about which methodology is most appropriate for their specific problem, data, and resource constraints.
+
+The comparative analysis offers practical value by translating theoretical differences into decision-making frameworks that can be applied to real-world projects. This understanding is essential for developing effective, appropriately scoped AI solutions.`,
     },
-    3: {
-      id: 3,
+    4: {
+      id: 4,
       title: "Neural Networks Detective Story",
       description:
         "An interactive demo created for a 'Communicating for Learning' assignment that explains neural networks through a detective-themed narrative and animated flip-card interactions. Breaks down the neural network process into intuitive steps: input, feature extraction, forward pass, output, and backpropagation.",
@@ -348,9 +542,23 @@ The demo uses a detective-themed narrative and animated flip-card interactions t
         "UI design plays a crucial role in making complex information intuitive and engaging",
         "The detective metaphor effectively bridges the gap between neural network processes and intuitive understanding",
       ],
+      toolsAndTechnologies: `This interactive demo was created using the following tools and technologies:
+
+- **ChatGPT 5.1**: Used for iterative concept development, storytelling refinement, and educational content structuring. The AI helped shape the narrative framework and refine the educational approach.
+
+- **Interactive UI Design**: Custom interface with animated flip-card interactions to create an engaging, hands-on learning experience.
+
+- **Educational Design Principles**: Applied learning-centered communication strategies to break down complex concepts into digestible, memorable components.
+
+- **Storytelling Framework**: Detective-themed narrative structure to make abstract neural network concepts more accessible and memorable.
+
+The project demonstrates the ability to combine technical accuracy with effective educational design and engaging user experience.`,
+      valueProposition: `This artifact demonstrates the ability to communicate complex technical concepts in accessible, engaging ways. It shows how creative storytelling and interactive design can make abstract AI/ML concepts understandable to diverse audiences.
+
+The project provides value by illustrating effective educational communication strategies that can be applied to explaining any complex technical concept. This skill is essential for AI/ML professionals who need to communicate with non-technical stakeholders, educators, and learners.`,
     },
-    4: {
-      id: 4,
+    5: {
+      id: 5,
       title: "Problems of Confusion: AI Bias in Clinical Diagnostic Imaging",
       description:
         "A critical reflection on algorithmic bias in medical imaging AI systems, addressing the importance of clear communication and ethical leadership in ensuring equitable diagnostic accuracy across diverse patient populations.",
@@ -457,9 +665,23 @@ The reflection addresses how poor communication and lack of clarity can lead to 
         "Global representation in training data is not optional but essential for equitable healthcare outcomes",
         "External audits and continuous monitoring are critical safeguards against bias that internal teams might miss",
       ],
+      toolsAndTechnologies: `This reflection was developed using the following tools and approaches:
+
+- **Gemini 3**: Used to brainstorm field-specific strategies for addressing algorithmic bias in clinical diagnostic imaging. The AI helped simplify complex terminology and refine content structure.
+
+- **Critical Reflection Framework**: Applied biblical thinking principles to analyze communication challenges and develop personal value statements.
+
+- **Research and Analysis**: Examined real-world examples of algorithmic bias in medical imaging and developed concrete strategies to address these challenges.
+
+- **Ethical AI Analysis**: Systematic approach to identifying and addressing bias in AI systems deployed in critical healthcare contexts.
+
+The reflection demonstrates the ability to apply ethical frameworks to real-world AI challenges and develop actionable strategies for ensuring equitable outcomes.`,
+      valueProposition: `This reflection demonstrates a deep commitment to ethical AI development and clear communication about the responsibilities inherent in deploying AI systems in critical contexts. It provides concrete, actionable strategies for addressing algorithmic bias in healthcare applications.
+
+The artifact offers unique value by combining personal reflection with practical solutions, showing how ethical considerations must be integrated into every stage of AI development and deployment. This perspective is essential for building trustworthy, equitable AI systems.`,
     },
-    5: {
-      id: 5,
+    6: {
+      id: 6,
       title: "Commercial Applications of AI — Interactive Newsletter",
       description:
         "An interactive newsletter exploring real-world commercial AI applications across three industries: software development, marketing & retail, and healthcare. Features filterable industry cards, search functionality, and expandable sections analyzing business impact and future potential.",
@@ -469,6 +691,7 @@ The reflection addresses how poor communication and lack of clarity can lead to 
         "Commercial AI Analysis",
       ],
       link: "https://chatgpt.com/canvas/shared/693f67a40c3881919f6e99ae89e18a12",
+      htmlLink: "/commercial-ai-newsletter.html",
       icon: "📰",
       introduction: `Artificial intelligence has moved beyond experimental research and proof-of-concept demonstrations. Today, AI is being deployed commercially across industries, transforming how businesses operate, make decisions, and deliver value to customers. Understanding these real-world applications is crucial for recognizing how AI is reshaping business processes and creating measurable impact.
 
@@ -540,6 +763,22 @@ The newsletter covers three industries: **Software Development** (NVIDIA's push 
             "Microsoft/Nuance outcomes study reporting 112% ROI, 24% reduction in documentation time, and capacity for 11.3 more patients per month using DAX Copilot.",
         },
       ],
+      toolsAndTechnologies: `This interactive newsletter was created using the following tools and technologies:
+
+- **ChatGPT 5.2**: Used for research assistance, content structuring, and initial design concepts. The AI helped identify recent commercial AI applications and analyze their business impact.
+
+- **Interactive UI Design**: Custom-built web interface with filtering, search, and accordion functionality to create an engaging, navigable experience.
+
+- **HTML/CSS/JavaScript**: Frontend technologies used to build the interactive newsletter with modern dark theme, responsive design, and accessibility features.
+
+- **Research Tools**: Systematic research across industry sources, press releases, and case studies to identify recent commercial AI applications with measurable business outcomes.
+
+- **Data Visualization**: Visual representations of business metrics (ROI, time savings, capacity improvements) to make impact data more accessible.
+
+The project demonstrates full-stack web development skills, research capabilities, and the ability to create engaging, accessible interfaces for complex information.`,
+      valueProposition: `This newsletter provides unique value by analyzing real-world commercial AI applications with measurable business outcomes, not just theoretical possibilities. It demonstrates how AI is already transforming industries and creating tangible value.
+
+The interactive format makes complex business information accessible and engaging, allowing readers to explore content at their own pace and focus on industries most relevant to them. This approach to presenting research findings is directly applicable to communicating AI insights to business stakeholders.`,
     },
   };
 
@@ -584,7 +823,289 @@ The newsletter covers three industries: **Software Development** (NVIDIA's push 
       </div>
 
       <div className="artifact-detail-content">
-        {artifact.type === "reflection" ? (
+        {artifact.type === "timeline" ? (
+          <>
+            {artifact.introduction && (
+              <section className="artifact-section">
+                <h2
+                  onClick={() => toggleSection("introduction")}
+                  className="collapsible-header"
+                >
+                  Introduction
+                  <span
+                    className={`collapse-icon ${collapsedSections.introduction ? "collapsed" : ""}`}
+                  >
+                    ▼
+                  </span>
+                </h2>
+                {!collapsedSections.introduction && (
+                  <p className="artifact-overview">
+                    {renderMarkdownText(artifact.introduction)}
+                  </p>
+                )}
+              </section>
+            )}
+
+            {artifact.objective && (
+              <section className="artifact-section">
+                <h2
+                  onClick={() => toggleSection("objective")}
+                  className="collapsible-header"
+                >
+                  Objective
+                  <span
+                    className={`collapse-icon ${collapsedSections.objective ? "collapsed" : ""}`}
+                  >
+                    ▼
+                  </span>
+                </h2>
+                {!collapsedSections.objective && (
+                  <div className="artifact-overview">
+                    {typeof artifact.objective === "string" ? (
+                      <p>{artifact.objective}</p>
+                    ) : (
+                      <>
+                        <p>{renderMarkdownText(artifact.objective.intro)}</p>
+                        <ol className="objective-list">
+                          {artifact.objective.items.map((item, index) => (
+                            <li key={index}>{renderMarkdownText(item)}</li>
+                          ))}
+                        </ol>
+                      </>
+                    )}
+                  </div>
+                )}
+              </section>
+            )}
+
+            <section className="artifact-section">
+              <h2
+                onClick={() => toggleSection("overview")}
+                className="collapsible-header"
+              >
+                Timeline Overview
+                <span
+                  className={`collapse-icon ${collapsedSections.overview ? "collapsed" : ""}`}
+                >
+                  ▼
+                </span>
+              </h2>
+              {!collapsedSections.overview && (
+                <div>
+                  <p className="artifact-overview">
+                    {renderMarkdownText(artifact.detailedDescription)}
+                  </p>
+                  {artifact.timelineData && (
+                    <div className="timeline-container" style={{ marginTop: "2rem" }}>
+                      <h3 style={{ fontSize: "1.5rem", marginBottom: "1.5rem", color: "#646cff" }}>Timeline: Major Eras in AI & AI-for-UI (1943-2025)</h3>
+                      <div className="timeline">
+                        {artifact.timelineData.map((period, index) => (
+                          <div key={index} className="timeline-item">
+                            <div className="timeline-marker"></div>
+                            <div className="timeline-content">
+                              <div className="timeline-header">
+                                <h4 className="timeline-era">{period.era}</h4>
+                                <span className="timeline-date">{period.dateRange}</span>
+                              </div>
+                              <p className="timeline-description">{period.description}</p>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              )}
+            </section>
+
+            {artifact.process && (
+              <section className="artifact-section">
+                <h2
+                  onClick={() => toggleSection("process")}
+                  className="collapsible-header"
+                >
+                  Process
+                  <span
+                    className={`collapse-icon ${collapsedSections.process ? "collapsed" : ""}`}
+                  >
+                    ▼
+                  </span>
+                </h2>
+                {!collapsedSections.process && (
+                  <div>
+                    {typeof artifact.process === "string" ? (
+                      <p className="artifact-overview">
+                        {renderMarkdownText(artifact.process)}
+                      </p>
+                    ) : (
+                      <div className="process-content">
+                        <p className="artifact-overview">
+                          {artifact.process.intro}
+                        </p>
+                        {artifact.process.sections.map(
+                          (section, sectionIndex) => (
+                            <div key={sectionIndex} className="process-section">
+                              <h3 className="process-section-title">
+                                {section.title}
+                              </h3>
+                              {section.content && (
+                                <p className="process-section-content">
+                                  {renderMarkdownText(section.content)}
+                                </p>
+                              )}
+                            </div>
+                          ),
+                        )}
+                      </div>
+                    )}
+                  </div>
+                )}
+              </section>
+            )}
+
+            {artifact.toolsAndTechnologies && (
+              <section className="artifact-section">
+                <h2
+                  onClick={() => toggleSection("tools")}
+                  className="collapsible-header"
+                >
+                  Tools & Technologies
+                  <span
+                    className={`collapse-icon ${collapsedSections.tools ? "collapsed" : ""}`}
+                  >
+                    ▼
+                  </span>
+                </h2>
+                {!collapsedSections.tools && (
+                  <p className="artifact-overview">
+                    {renderMarkdownText(artifact.toolsAndTechnologies)}
+                  </p>
+                )}
+              </section>
+            )}
+
+            {artifact.valueProposition && (
+              <section className="artifact-section">
+                <h2
+                  onClick={() => toggleSection("valueProp")}
+                  className="collapsible-header"
+                >
+                  Value Proposition
+                  <span
+                    className={`collapse-icon ${collapsedSections.valueProp ? "collapsed" : ""}`}
+                  >
+                    ▼
+                  </span>
+                </h2>
+                {!collapsedSections.valueProp && (
+                  <p className="artifact-overview">
+                    {renderMarkdownText(artifact.valueProposition)}
+                  </p>
+                )}
+              </section>
+            )}
+
+            {artifact.uniqueValue && (
+              <section className="artifact-section">
+                <h2
+                  onClick={() => toggleSection("uniqueValue")}
+                  className="collapsible-header"
+                >
+                  Unique Value
+                  <span
+                    className={`collapse-icon ${collapsedSections.uniqueValue ? "collapsed" : ""}`}
+                  >
+                    ▼
+                  </span>
+                </h2>
+                {!collapsedSections.uniqueValue && (
+                  <p className="artifact-overview">
+                    {renderMarkdownText(artifact.uniqueValue)}
+                  </p>
+                )}
+              </section>
+            )}
+
+            {artifact.relevance && (
+              <section className="artifact-section">
+                <h2
+                  onClick={() => toggleSection("relevance")}
+                  className="collapsible-header"
+                >
+                  Relevance
+                  <span
+                    className={`collapse-icon ${collapsedSections.relevance ? "collapsed" : ""}`}
+                  >
+                    ▼
+                  </span>
+                </h2>
+                {!collapsedSections.relevance && (
+                  <p className="artifact-overview">
+                    {renderMarkdownText(artifact.relevance)}
+                  </p>
+                )}
+              </section>
+            )}
+
+            {artifact.learnings && (
+              <section className="artifact-section">
+                <h2
+                  onClick={() => toggleSection("learnings")}
+                  className="collapsible-header"
+                >
+                  Key Learnings
+                  <span
+                    className={`collapse-icon ${collapsedSections.learnings ? "collapsed" : ""}`}
+                  >
+                    ▼
+                  </span>
+                </h2>
+                {!collapsedSections.learnings && (
+                  <ul className="artifact-list">
+                    {artifact.learnings.map((learning, index) => (
+                      <li key={index}>{learning}</li>
+                    ))}
+                  </ul>
+                )}
+              </section>
+            )}
+
+            {artifact.references && artifact.references.length > 0 && (
+              <section className="artifact-section">
+                <h2
+                  onClick={() => toggleSection("references")}
+                  className="collapsible-header"
+                >
+                  References
+                  <span
+                    className={`collapse-icon ${collapsedSections.references ? "collapsed" : ""}`}
+                  >
+                    ▼
+                  </span>
+                </h2>
+                {!collapsedSections.references && (
+                  <ul className="references-list">
+                    {artifact.references.map((ref, index) => (
+                      <li key={index} className="reference-item">
+                        <a
+                          href={ref.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="reference-link"
+                        >
+                          {ref.title}
+                        </a>
+                        <p className="reference-description">
+                          {ref.description}
+                        </p>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </section>
+            )}
+          </>
+        ) : artifact.type === "reflection" ? (
           <>
             {artifact.introduction && (
               <section className="artifact-section">
@@ -956,6 +1477,32 @@ The newsletter covers three industries: **Software Development** (NVIDIA's push 
         ) : (
           <>
             <div className="project-link-section">
+              {artifact.htmlLink ? (
+                <>
+                  <a
+                    href={artifact.htmlLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="project-link-button"
+                    style={{ marginRight: "1rem" }}
+                  >
+                    View Interactive Newsletter →
+                  </a>
+                  <a
+                    href={artifact.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="project-link-button"
+                    style={{ 
+                      backgroundColor: "transparent",
+                      border: "1px solid var(--accent)",
+                      color: "var(--accent)"
+                    }}
+                  >
+                    View on ChatGPT Canvas →
+                  </a>
+                </>
+              ) : (
               <a
                 href={artifact.link}
                 target="_blank"
@@ -964,6 +1511,7 @@ The newsletter covers three industries: **Software Development** (NVIDIA's push 
               >
                 Open Project →
               </a>
+              )}
             </div>
 
             {artifact.introduction && (

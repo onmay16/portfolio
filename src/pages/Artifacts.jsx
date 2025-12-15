@@ -5,6 +5,15 @@ function Artifacts() {
   const artifacts = [
     {
       id: 1,
+      title: "AI & ML Timeline",
+      description:
+        "A comprehensive timeline documenting the evolution of Artificial Intelligence and Machine Learning from foundational concepts to modern breakthroughs. Created during residency to understand the historical context and progression of AI/ML technologies.",
+      technologies: ["Research", "Historical Analysis", "Timeline Visualization"],
+      icon: "📅",
+      type: "timeline",
+    },
+    {
+      id: 2,
       title: "AI Job Hunting Assistant Lab",
       description:
         "A team-based exploration of Google's Gemini tool to design an interactive AI Job Hunting Assistant that helps users find relevant job openings based on their profile including job type, years of experience, industry, and location.",
@@ -13,17 +22,17 @@ function Artifacts() {
       icon: "🔍",
     },
     {
-      id: 2,
+      id: 3,
       title: "Machine Learning vs Deep Learning Report",
       description:
         "A comparative analysis report exploring the differences, applications, and relationships between Machine Learning and Deep Learning methodologies.",
       technologies: ["Machine Learning", "Deep Learning", "Research"],
-      link: "/ml-vs-dl-report.docx",
+      link: "https://myemailindwes-my.sharepoint.com/personal/sugyeong_hong_myemail_indwes_edu/_layouts/15/guestaccess.aspx?share=EXYnAwu39x9JnYDQ-XESidcBTWz_FulH-WmeGC0-Stc7DQ",
       icon: "🧠",
       type: "report",
     },
     {
-      id: 3,
+      id: 4,
       title: "Neural Networks Detective Story",
       description:
         "An interactive demo created for a 'Communicating for Learning' assignment that explains neural networks through a detective-themed narrative and animated flip-card interactions. Breaks down the neural network process into intuitive steps: input, feature extraction, forward pass, output, and backpropagation.",
@@ -36,7 +45,7 @@ function Artifacts() {
       icon: "🕵️",
     },
     {
-      id: 4,
+      id: 5,
       title: "Problems of Confusion: AI Bias in Clinical Diagnostic Imaging",
       description:
         "A critical reflection on algorithmic bias in medical imaging AI systems, addressing the importance of clear communication and ethical leadership in ensuring equitable diagnostic accuracy across diverse patient populations.",
@@ -48,7 +57,7 @@ function Artifacts() {
       type: "reflection",
     },
     {
-      id: 5,
+      id: 6,
       title: "Commercial Applications of AI — Interactive Newsletter",
       description:
         "An interactive newsletter exploring real-world commercial AI applications across three industries: software development, marketing & retail, and healthcare. Features filterable industry cards, search functionality, and expandable sections analyzing business impact and future potential.",

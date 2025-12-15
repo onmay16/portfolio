@@ -143,6 +143,35 @@
   font-weight: bold;
 }
 
+.target-audience-list {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0;
+}
+
+.target-audience-list li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 1.25rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.target-audience-list li::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: #667eea;
+  font-weight: bold;
+}
+
+.target-audience-list li strong {
+  color: rgba(255, 255, 255, 0.9);
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -196,6 +225,14 @@
 
   .skills-list li {
     color: rgba(0, 0, 0, 0.6);
+  }
+
+  .target-audience-list li {
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  .target-audience-list li strong {
+    color: rgba(0, 0, 0, 0.9);
   }
 }
 
