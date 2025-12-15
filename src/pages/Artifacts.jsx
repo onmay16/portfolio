@@ -47,6 +47,19 @@ function Artifacts() {
       icon: "🏥",
       type: "reflection",
     },
+    {
+      id: 5,
+      title: "Commercial Applications of AI — Interactive Newsletter",
+      description:
+        "An interactive newsletter exploring real-world commercial AI applications across three industries: software development, marketing & retail, and healthcare. Features filterable industry cards, search functionality, and expandable sections analyzing business impact and future potential.",
+      technologies: [
+        "ChatGPT 5.2",
+        "Interactive UI Design",
+        "Commercial AI Analysis",
+      ],
+      link: "https://chatgpt.com/canvas/shared/693f67a40c3881919f6e99ae89e18a12",
+      icon: "📰",
+    },
   ];
 
   return (

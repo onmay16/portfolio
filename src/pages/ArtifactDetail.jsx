@@ -458,6 +458,89 @@ The reflection addresses how poor communication and lack of clarity can lead to 
         "External audits and continuous monitoring are critical safeguards against bias that internal teams might miss",
       ],
     },
+    5: {
+      id: 5,
+      title: "Commercial Applications of AI — Interactive Newsletter",
+      description:
+        "An interactive newsletter exploring real-world commercial AI applications across three industries: software development, marketing & retail, and healthcare. Features filterable industry cards, search functionality, and expandable sections analyzing business impact and future potential.",
+      technologies: [
+        "ChatGPT 5.2",
+        "Interactive UI Design",
+        "Commercial AI Analysis",
+      ],
+      link: "https://chatgpt.com/canvas/shared/693f67a40c3881919f6e99ae89e18a12",
+      icon: "📰",
+      introduction: `Artificial intelligence has moved beyond experimental research and proof-of-concept demonstrations. Today, AI is being deployed commercially across industries, transforming how businesses operate, make decisions, and deliver value to customers. Understanding these real-world applications is crucial for recognizing how AI is reshaping business processes and creating measurable impact.
+
+This assignment required researching and analyzing commercial AI applications released over the past month across three different industries, then presenting findings in an engaging newsletter format accessible to audiences without extensive AI knowledge. The goal was to demonstrate how AI is already operational—not just "interesting" but actively driving business outcomes.
+
+This work connects to my professional goal of understanding how AI creates real business value and communicating complex technical concepts in accessible, engaging formats.`,
+      objective: {
+        intro:
+          "The primary objective of this assignment was to identify and analyze key commercial applications of AI across different industries, specifically:",
+        items: [
+          "Research new or updated commercial AI applications released over the past month across three different industries",
+          "Analyze how these AI companies and models/products are transforming business processes and decision-making within each industry",
+          "Evaluate the impact of commercial AI applications on business operations",
+          "Provide specific examples to illustrate points with real-world use cases",
+          "Format findings as an engaging newsletter that balances technical accuracy with accessibility",
+          "Create an interactive UI that allows users to explore content through filtering, search, and expandable sections",
+        ],
+      },
+      detailedDescription: `I created this interactive newsletter as part of the "Commercial Applications of AI" assignment, which focused on analyzing how AI is already being used commercially rather than speculating about future possibilities. The assignment required examining real-world business impact across three industries, with specific examples of companies and products released in recent months.
+
+I chose to present this as an interactive web-based newsletter with filterable industry cards, search functionality, and expandable accordion sections. This format allows readers to explore content at their own pace, filter by industry interest, and dive deeper into specific aspects of each application. The design uses a modern, dark theme with clear visual hierarchy and intuitive interactions.
+
+The newsletter covers three industries: **Software Development** (NVIDIA's push for AI coding agents like Cursor), **Marketing & Retail** (Jo Malone London's AI Scent Advisor powered by Vertex AI), and **Healthcare** (Microsoft Nuance DAX Copilot outcomes at Northwestern Medicine). Each section includes analysis of what changed commercially, business impact, and future potential.`,
+      features: [
+        "Interactive industry filtering (All, Software, Marketing & Retail, Healthcare)",
+        "Real-time keyword search across all content and metadata",
+        "Expandable accordion sections for detailed analysis",
+        "Visual data representation (ROI bar charts, outcome snapshots)",
+        "Copy-to-clipboard functionality for reference URLs",
+        "Responsive design with modern dark theme",
+        "Accessibility features (ARIA labels, keyboard navigation)",
+        "Three comprehensive industry case studies with business impact analysis",
+      ],
+      challenges: [
+        "Balancing technical accuracy with accessibility for non-technical audiences",
+        "Finding recent commercial AI applications with measurable business outcomes",
+        "Designing an intuitive filtering and search system that works seamlessly together",
+        "Creating visual representations of data (like ROI percentages) that are informative but not misleading",
+        "Ensuring the newsletter format is engaging while maintaining professional tone",
+        "Organizing complex information hierarchically without overwhelming users",
+      ],
+      learnings: [
+        "Commercial AI succeeds when it redesigns workflows, not just adds features",
+        "AI applications are moving from experimental to operational across industries",
+        "Measurable business impact (ROI, time savings, capacity) is crucial for commercial AI adoption",
+        "Interactive UI design can significantly enhance information accessibility and engagement",
+        "Filtering and search functionality are essential for navigating complex, multi-industry content",
+        "Visual design and information architecture play critical roles in making technical content accessible",
+        "Real-world AI applications demonstrate consistent patterns: workflow redesign, measurable impact, and future scalability",
+        "The newsletter format is effective for presenting research findings in an engaging, structured way",
+      ],
+      references: [
+        {
+          title: "Nvidia CEO Says You're 'Insane' If You Don't Use AI to Do Literally Everything",
+          url: "https://futurism.com/artificial-intelligence/nvidia-ceo-insane-ai",
+          description:
+            "Futurism article covering NVIDIA CEO Jensen Huang's comments about AI coding tools becoming standard in software development workflows.",
+        },
+        {
+          title: "The Estée Lauder Companies and Jo Malone London Introduce AI-Powered Scent Advisor Experience",
+          url: "https://www.elcompanies.com/en/news-and-media/newsroom/press-releases/2025/12-02-2025-121509645",
+          description:
+            "Press release announcing Jo Malone London's AI Scent Advisor built with Google Cloud Vertex AI, enabling natural-language fragrance recommendations.",
+        },
+        {
+          title: "A study of the effectiveness of DAX™ Copilot for Epic at Northwestern Medicine",
+          url: "https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-product-and-services/azure/documents/microsoft-northwestern-medicine-outcomes-study-final-1037321.pdf",
+          description:
+            "Microsoft/Nuance outcomes study reporting 112% ROI, 24% reduction in documentation time, and capacity for 11.3 more patients per month using DAX Copilot.",
+        },
+      ],
+    },
   };
 
   const artifact = artifactsData[id];
