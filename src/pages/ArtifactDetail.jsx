@@ -1477,41 +1477,14 @@ The interactive format makes complex business information accessible and engagin
         ) : (
           <>
             <div className="project-link-section">
-              {artifact.htmlLink ? (
-                <>
-                  <a
-                    href={artifact.htmlLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="project-link-button"
-                    style={{ marginRight: "1rem" }}
-                  >
-                    View Interactive Newsletter →
-                  </a>
-                  <a
-                    href={artifact.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="project-link-button"
-                    style={{ 
-                      backgroundColor: "transparent",
-                      border: "1px solid var(--accent)",
-                      color: "var(--accent)"
-                    }}
-                  >
-                    View on ChatGPT Canvas →
-                  </a>
-                </>
-              ) : (
               <a
                 href={artifact.link}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="project-link-button"
               >
-                Open Project →
+                View Project →
               </a>
-              )}
             </div>
 
             {artifact.introduction && (
