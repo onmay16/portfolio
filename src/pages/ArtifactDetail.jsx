@@ -857,7 +857,13 @@ This work connects to using AI for both external engagement and internal improve
       },
       detailedDescription: `This project addresses the use case **AI-Generated Training Content for Front-of-House Staff** in the **HR/Operations** vertical. The solution is an AI-powered interactive training system: employees practice realistic customer scenarios and receive immediate feedback aligned with brand values (Warmth, Ownership, Clarity, Efficiency).
 
-**Tool chain:** (1) **Google Gemini 3 Pro** generates structured training scenarios and scenario images from brand values and front-of-house context. (2) A **Streamlit** app, built with **Cursor** as an AI-assisted coding partner, turns those scenarios into a decision-based training game—users review a scenario, choose a response, and get immediate feedback and scoring. Together, the tools form an end-to-end workflow from content creation to interactive delivery.`,
+**Tool chain:**
+
+(1) **Google Gemini 3 Pro** generates structured training scenarios and scenario images from brand values and front-of-house context.
+
+(2) A **Streamlit** app, built with **Cursor** as an AI-assisted coding partner, turns those scenarios into a decision-based training game—users review a scenario, choose a response, and get immediate feedback and scoring.
+
+Together, the tools form an end-to-end workflow from content creation to interactive delivery.`,
       process: {
         intro:
           "The project was developed by chaining two AI tools, with each step feeding the next:",
@@ -1719,7 +1725,7 @@ The approach is scalable, maintainable, and aligned with real-world challenges i
               {!collapsedSections.overview && (
                 <div>
                   <p className="artifact-overview">
-                    {artifact.detailedDescription}
+                    {renderMarkdownText(artifact.detailedDescription)}
                   </p>
                   {artifact.features && (
                     <div className="features-section">
