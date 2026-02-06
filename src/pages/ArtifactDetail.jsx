@@ -691,7 +691,6 @@ The artifact offers unique value by combining personal reflection with practical
         "Commercial AI Analysis",
       ],
       link: "https://chatgpt.com/canvas/shared/693f67a40c3881919f6e99ae89e18a12",
-      htmlLink: "/commercial-ai-newsletter.html",
       icon: "📰",
       introduction: `Artificial intelligence has moved beyond experimental research and proof-of-concept demonstrations. Today, AI is being deployed commercially across industries, transforming how businesses operate, make decisions, and deliver value to customers. Understanding these real-world applications is crucial for recognizing how AI is reshaping business processes and creating measurable impact.
 
