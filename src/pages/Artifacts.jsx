@@ -77,6 +77,7 @@ function Artifacts() {
       technologies: ["Google Gemini", "Streamlit", "Cursor", "HeyGen", "Tool Chaining"],
       link: "https://nqnpfa4v7rs27iwbtsdmng.streamlit.app/",
       icon: "⛓️",
+      newlyAdded: true,
     },
   ];
 
@@ -92,6 +93,11 @@ function Artifacts() {
       <div className="artifacts-grid">
         {[...artifacts].sort((a, b) => b.id - a.id).map((artifact) => (
           <div key={artifact.id} className="artifact-card">
+            {artifact.newlyAdded && (
+              <span className="artifact-new-badge" title="Newly added">
+                ✨ New
+              </span>
+            )}
             <div className="artifact-content">
               <div className="artifact-header">
                 <div className="artifact-icon">{artifact.icon}</div>

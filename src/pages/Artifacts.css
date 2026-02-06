@@ -35,6 +35,7 @@
 }
 
 .artifact-card {
+  position: relative;
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 1rem;
@@ -99,6 +100,23 @@
   font-weight: 600;
   margin: 0;
   color: rgba(255, 255, 255, 0.95);
+}
+
+.artifact-new-badge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.35rem 0.7rem;
+  border-radius: 0.5rem;
+  background: linear-gradient(135deg, rgb(100, 108, 255), rgb(139, 92, 246));
+  color: #fff;
+  border: 1px solid rgb(100, 108, 255);
+  white-space: nowrap;
+  z-index: 1;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .artifact-description {
@@ -189,6 +207,12 @@
 
   .tech-tag {
     background: rgba(100, 108, 255, 0.15);
+  }
+
+  .artifact-new-badge {
+    background: linear-gradient(135deg, rgb(100, 108, 255), rgb(139, 92, 246));
+    color: #fff;
+    border-color: rgb(100, 108, 255);
   }
 }
 
