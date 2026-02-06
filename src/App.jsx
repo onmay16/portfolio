@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
+import ScrollToTop from "./components/ScrollToTop";
 import Home from "./pages/Home";
 import Artifacts from "./pages/Artifacts";
 import ArtifactDetail from "./pages/ArtifactDetail";
@@ -8,6 +9,7 @@ import "./App.css";
 function App() {
   return (
     <Router basename="/portfolio">
+      <ScrollToTop />
       <div className="app">
         <Navbar />
         <main className="main-content">
