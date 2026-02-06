@@ -85,9 +85,7 @@ function Artifacts() {
     <div className="artifacts-page">
       <div className="artifacts-header">
         <h1 className="artifacts-title">Artifacts</h1>
-        <p className="artifacts-description">
-          A collection of activities and projects done in AIML-500 course.
-        </p>
+        <p className="artifacts-description">A collection of activities and projects done in AIML-500 & 505.</p>
       </div>
 
       <div className="artifacts-grid">
