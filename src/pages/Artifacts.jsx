@@ -90,7 +90,7 @@ function Artifacts() {
 
       <div className="artifacts-grid">
         {[...artifacts].sort((a, b) => b.id - a.id).map((artifact) => (
-          <div key={artifact.id} className="artifact-card">
+          <Link key={artifact.id} to={`/artifacts/${artifact.id}`} className="artifact-card">
             {artifact.newlyAdded && (
               <span className="artifact-new-badge" title="Newly added">
                 ✨ New
@@ -111,11 +111,9 @@ function Artifacts() {
               </div>
             </div>
             <div className="artifact-footer">
-              <Link to={`/artifacts/${artifact.id}`} className="artifact-link">
-                View Details →
-              </Link>
+              <span className="artifact-link">View Details →</span>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>
