@@ -858,9 +858,7 @@ This work connects to using AI for both external engagement and internal improve
       detailedDescription: `This project addresses the use case **AI-Generated Training Content for Front-of-House Staff** in the **HR/Operations** vertical. The solution is an AI-powered interactive training system: employees practice realistic customer scenarios and receive immediate feedback aligned with brand values (Warmth, Ownership, Clarity, Efficiency).
 
 **Tool chain:**
-
 (1) **Google Gemini 3 Pro** generates structured training scenarios and scenario images from brand values and front-of-house context.
-
 (2) A **Streamlit** app, built with **Cursor** as an AI-assisted coding partner, turns those scenarios into a decision-based training game—users review a scenario, choose a response, and get immediate feedback and scoring.
 
 Together, the tools form an end-to-end workflow from content creation to interactive delivery.`,
@@ -871,23 +869,20 @@ Together, the tools form an end-to-end workflow from content creation to interac
           {
             title: "Tool 1 — Google Gemini 3 Pro (Scenario Generation)",
             content:
-              "Inputs: brand values (Warmth, Ownership, Clarity, Efficiency) and front-of-house context (time pressure, role, store condition). Outputs: JSON-formatted customer service scenarios (context, response options, ideal response, skill tags) and one image per scenario. Chat link to the Gemini conversation is provided in References.",
+              "**Inputs:** brand values (Warmth, Ownership, Clarity, Efficiency) and front-of-house context (time pressure, role, store condition).\n**Outputs:** JSON-formatted customer service scenarios (context, response options, ideal response, skill tags) and one image per scenario. Chat link to the Gemini conversation is provided in References.",
           },
           {
             title: "Tool 2 — Cursor & Streamlit (Interactive Training App)",
             content:
-              "The Streamlit application was built using Cursor as an AI-assisted coding environment. Inputs: scenario JSON files and scenario images from Gemini. Output: an interactive training game where users review a scenario, choose a response, and receive immediate feedback and scoring. The live demo is linked at the top of this page.",
+              "The Streamlit application was built using Cursor as an AI-assisted coding environment.\n**Inputs:** scenario JSON files and scenario images from Gemini.\n**Output:** an interactive training game where users review a scenario, choose a response, and receive immediate feedback and scoring. The live demo is linked at the top of this page.",
           },
         ],
       },
       toolsAndTechnologies: `This project used the following tools and technologies:
 
 - **Google Gemini 3 Pro**: Generated realistic training scenarios and contextual images in structured JSON format, with one image per scenario saved by scenario ID.
-
 - **Streamlit**: Used to build the interactive training web app that presents scenarios, captures user choices, and provides feedback and scoring.
-
 - **Cursor**: AI-assisted coding partner for implementing the Streamlit app, demonstrating AI usage throughout development as well as in the final product.
-
 - **Tool chaining**: Gemini’s scalable, structured content feeds directly into the Streamlit app, showing an end-to-end AI workflow from content creation to delivery.`,
       valueProposition: `This project demonstrates effective AI tool chaining for internal operations and brand storytelling:
 
@@ -902,20 +897,6 @@ The approach is scalable, maintainable, and aligned with real-world challenges i
         "Brand values can be embedded into training design (scenario design and feedback criteria) so practice is aligned with company culture.",
         "AI-assisted development (Cursor) speeds up building the delivery layer (Streamlit) while keeping the human in the loop for design and quality.",
         "Using generative AI for internal training and operations is a practical application of the same storytelling and tool-integration concepts used in marketing.",
-      ],
-      references: [
-        {
-          title: "Gemini scenario generation (chat)",
-          url: "https://gemini.google.com/share/8cc275ef02af",
-          description:
-            "Chat link showing scenario generation with Gemini: inputs (brand values, FOH context) and outputs (JSON scenarios and scenario images).",
-        },
-        {
-          title: "ChatGPT brainstorming",
-          url: "https://chatgpt.com/share/69839f97-2898-8007-8e25-dc654cfcd13b",
-          description:
-            "Chat link used for brainstorming and concept development before implementing the tool chain.",
-        },
       ],
     },
   };
@@ -1641,7 +1622,7 @@ The approach is scalable, maintainable, and aligned with real-world challenges i
                     rel="noopener noreferrer"
                     className="project-link-button"
                   >
-                    View Project →
+                    {Number(id) === 7 ? "View Demo" : "View Project"} →
                   </a>
                 )}
                 {artifact.videoPitchLink && (
