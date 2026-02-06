@@ -685,3 +685,249 @@
     font-size: 1rem;
   }
 }
+
+/* Light mode */
+@media (prefers-color-scheme: light) {
+  .artifact-detail-page {
+    color: rgba(0, 0, 0, 0.9);
+  }
+
+  .back-button {
+    border-color: rgba(0, 0, 0, 0.2);
+    color: rgba(0, 0, 0, 0.85);
+  }
+
+  .back-button:hover {
+    background: rgba(0, 0, 0, 0.06);
+    border-color: rgba(0, 0, 0, 0.25);
+  }
+
+  .artifact-detail-title {
+    color: rgba(0, 0, 0, 0.9);
+  }
+
+  .timeline-marker {
+    border-color: #ffffff;
+    box-shadow: 0 0 0 2px #646cff;
+  }
+
+  .timeline-content {
+    background: rgba(0, 0, 0, 0.04);
+    border-color: rgba(0, 0, 0, 0.12);
+  }
+
+  .timeline-content:hover {
+    background: rgba(0, 0, 0, 0.06);
+    border-color: rgba(100, 108, 255, 0.4);
+  }
+
+  .timeline-era {
+    color: rgba(0, 0, 0, 0.9);
+  }
+
+  .timeline-date {
+    background: rgba(100, 108, 255, 0.12);
+  }
+
+  .timeline-description {
+    color: rgba(0, 0, 0, 0.65);
+  }
+
+  .artifact-section {
+    background: rgba(0, 0, 0, 0.04);
+    border-color: rgba(0, 0, 0, 0.12);
+  }
+
+  .artifact-section h2 {
+    color: rgba(0, 0, 0, 0.9);
+  }
+
+  .collapsible-header:hover {
+    color: #667eea;
+  }
+
+  .collapse-icon {
+    color: #667eea;
+  }
+
+  .artifact-overview {
+    color: rgba(0, 0, 0, 0.65);
+  }
+
+  .objective-list {
+    color: rgba(0, 0, 0, 0.65);
+  }
+
+  .process-content {
+    color: rgba(0, 0, 0, 0.65);
+  }
+
+  .process-section-title {
+    color: rgba(0, 0, 0, 0.9);
+  }
+
+  .process-section-content {
+    color: rgba(0, 0, 0, 0.65);
+  }
+
+  .process-list {
+    color: rgba(0, 0, 0, 0.65);
+  }
+
+  .process-list-item strong {
+    color: rgba(0, 0, 0, 0.9);
+  }
+
+  .process-sublist {
+    color: rgba(0, 0, 0, 0.65);
+  }
+
+  .artifact-list li {
+    color: rgba(0, 0, 0, 0.65);
+  }
+
+  .navigation-instruction {
+    background: rgba(102, 126, 234, 0.08);
+    border-color: rgba(102, 126, 234, 0.25);
+    color: rgba(0, 0, 0, 0.8);
+  }
+
+  .navigation-instruction strong {
+    color: #667eea;
+  }
+
+  .subsection-title {
+    color: #667eea;
+  }
+
+  .features-section,
+  .challenges-section {
+    border-top-color: rgba(0, 0, 0, 0.12);
+  }
+
+  .reference-item {
+    background: rgba(0, 0, 0, 0.04);
+    border-left-color: #667eea;
+  }
+
+  .reference-item:hover {
+    background: rgba(0, 0, 0, 0.06);
+  }
+
+  .reference-link {
+    color: #667eea;
+  }
+
+  .reference-link:hover {
+    color: #764ba2;
+  }
+
+  .reference-description {
+    color: rgba(0, 0, 0, 0.65);
+  }
+
+  .lab-log-table table {
+    background: rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(0, 0, 0, 0.12);
+  }
+
+  .lab-log-table th,
+  .lab-log-table td {
+    border-bottom-color: rgba(0, 0, 0, 0.12);
+  }
+
+  .lab-log-table th {
+    background: rgba(102, 126, 234, 0.15);
+    color: rgba(0, 0, 0, 0.9);
+  }
+
+  .lab-log-table td {
+    color: rgba(0, 0, 0, 0.65);
+  }
+
+  .lab-log-table tr:hover {
+    background: rgba(0, 0, 0, 0.06);
+  }
+
+  .lab-log-table td:first-child {
+    color: #667eea;
+  }
+
+  .report-table {
+    background: rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(0, 0, 0, 0.12);
+  }
+
+  .report-table th,
+  .report-table td {
+    border-bottom-color: rgba(0, 0, 0, 0.12);
+  }
+
+  .report-table th {
+    background: rgba(102, 126, 234, 0.15);
+    color: rgba(0, 0, 0, 0.9);
+  }
+
+  .report-table td {
+    color: rgba(0, 0, 0, 0.65);
+  }
+
+  .report-table tr:hover {
+    background: rgba(0, 0, 0, 0.06);
+  }
+
+  .report-table .concept-name,
+  .report-table .section-name,
+  .report-table .finding-number {
+    color: #667eea;
+  }
+
+  .comparison-table {
+    background: rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(0, 0, 0, 0.12);
+  }
+
+  .comparison-table th,
+  .comparison-table td {
+    border-bottom-color: rgba(0, 0, 0, 0.12);
+  }
+
+  .comparison-table th {
+    background: rgba(102, 126, 234, 0.15);
+    color: rgba(0, 0, 0, 0.9);
+  }
+
+  .comparison-table td {
+    color: rgba(0, 0, 0, 0.65);
+  }
+
+  .comparison-table tr:hover {
+    background: rgba(0, 0, 0, 0.06);
+  }
+
+  .comparison-table .aspect-name {
+    color: #667eea;
+  }
+
+  .tech-tag {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: 1px solid rgba(102, 126, 234, 0.3);
+  }
+
+  .project-link-button {
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.35);
+  }
+
+  .project-link-button:hover {
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5);
+  }
+
+  .artifact-not-found h1 {
+    color: rgba(0, 0, 0, 0.9);
+  }
+
+  .artifact-not-found p {
+    color: rgba(0, 0, 0, 0.6);
+  }
+}
