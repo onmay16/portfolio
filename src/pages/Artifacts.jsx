@@ -90,7 +90,7 @@ function Artifacts() {
       </div>
 
       <div className="artifacts-grid">
-        {artifacts.map((artifact) => (
+        {[...artifacts].sort((a, b) => b.id - a.id).map((artifact) => (
           <div key={artifact.id} className="artifact-card">
             <div className="artifact-content">
               <div className="artifact-header">
