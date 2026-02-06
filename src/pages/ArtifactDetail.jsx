@@ -28,6 +28,60 @@ function renderMarkdownText(text) {
   });
 }
 
+function getSectionsForArtifact(artifact) {
+  if (!artifact) return [];
+  const sections = [];
+  const push = (id, label) => sections.push({ id: `section-${id}`, key: id, label });
+
+  if (artifact.type === "timeline") {
+    if (artifact.introduction) push("introduction", "Introduction");
+    if (artifact.objective) push("objective", "Objective");
+    push("overview", "Timeline Overview");
+    if (artifact.process) push("process", "Process");
+    if (artifact.toolsAndTechnologies) push("tools", "Tools & Technologies");
+    if (artifact.valueProposition) push("valueProp", "Value Proposition");
+    if (artifact.uniqueValue) push("uniqueValue", "Unique Value");
+    if (artifact.relevance) push("relevance", "Relevance");
+    if (artifact.learnings) push("learnings", "Key Learnings");
+    if (artifact.references?.length) push("references", "References");
+    return sections;
+  }
+
+  if (artifact.type === "reflection") {
+    if (artifact.introduction) push("introduction", "Introduction");
+    if (artifact.valueStatement) push("valueProp", "Personal Value Statement");
+    if (artifact.strategies?.length) push("process", "Strategies to Fulfill This Value");
+    if (artifact.aiDisclosure) push("tools", "AI Disclosure");
+    if (artifact.learnings) push("learnings", "Key Learnings");
+    return sections;
+  }
+
+  if (artifact.type === "report") {
+    if (artifact.introduction) push("introduction", "Introduction");
+    if (artifact.objective) push("objective", "Objective");
+    push("overview", "Report Overview");
+    if (artifact.process) push("process", "Process");
+    if (artifact.toolsAndTechnologies) push("tools", "Tools & Technologies");
+    if (artifact.valueProposition) push("valueProp", "Value Proposition");
+    if (artifact.comparison) push("comparison", "Machine Learning vs Deep Learning");
+    if (artifact.learnings) push("learnings", "Key Learnings");
+    if (artifact.references?.length) push("references", "References");
+    return sections;
+  }
+
+  // default type
+  if (artifact.introduction) push("introduction", "Introduction");
+  if (artifact.objective) push("objective", "Objective");
+  push("overview", "Project Overview");
+  if (artifact.process) push("process", "Process");
+  if (artifact.toolsAndTechnologies) push("tools", "Tools & Technologies");
+  if (artifact.valueProposition) push("valueProp", "Value Proposition");
+  if (artifact.labLog?.length) push("labLog", "Lab Log");
+  if (artifact.learnings) push("learnings", "Key Learnings");
+  if (artifact.references?.length) push("references", "References");
+  return sections;
+}
+
 function ArtifactDetail() {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -900,11 +954,29 @@ The approach is scalable, maintainable, and aligned with real-world challenges i
         </div>
       </div>
 
+      {artifact && getSectionsForArtifact(artifact).length > 0 && (
+        <nav className="artifact-section-nav" aria-label="Page sections">
+          {getSectionsForArtifact(artifact).map(({ id, label }) => (
+            <a
+              key={id}
+              href={`#${id}`}
+              className="artifact-section-nav-link"
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+              }}
+            >
+              {label}
+            </a>
+          ))}
+        </nav>
+      )}
+
       <div className="artifact-detail-content">
         {artifact.type === "timeline" ? (
           <>
             {artifact.introduction && (
-              <section className="artifact-section">
+              <section id="section-introduction" className="artifact-section">
                 <h2
                   onClick={() => toggleSection("introduction")}
                   className="collapsible-header"
@@ -925,7 +997,7 @@ The approach is scalable, maintainable, and aligned with real-world challenges i
             )}
 
             {artifact.objective && (
-              <section className="artifact-section">
+              <section id="section-objective" className="artifact-section">
                 <h2
                   onClick={() => toggleSection("objective")}
                   className="collapsible-header"
@@ -956,7 +1028,7 @@ The approach is scalable, maintainable, and aligned with real-world challenges i
               </section>
             )}
 
-            <section className="artifact-section">
+            <section id="section-overview" className="artifact-section">
               <h2
                 onClick={() => toggleSection("overview")}
                 className="collapsible-header"
@@ -997,7 +1069,7 @@ The approach is scalable, maintainable, and aligned with real-world challenges i
             </section>
 
             {artifact.process && (
-              <section className="artifact-section">
+              <section id="section-process" className="artifact-section">
                 <h2
                   onClick={() => toggleSection("process")}
                   className="collapsible-header"
@@ -1042,7 +1114,7 @@ The approach is scalable, maintainable, and aligned with real-world challenges i
             )}
 
             {artifact.toolsAndTechnologies && (
-              <section className="artifact-section">
+              <section id="section-tools" className="artifact-section">
                 <h2
                   onClick={() => toggleSection("tools")}
                   className="collapsible-header"
@@ -1063,7 +1135,7 @@ The approach is scalable, maintainable, and aligned with real-world challenges i
             )}
 
             {artifact.valueProposition && (
-              <section className="artifact-section">
+              <section id="section-valueProp" className="artifact-section">
                 <h2
                   onClick={() => toggleSection("valueProp")}
                   className="collapsible-header"
@@ -1084,7 +1156,7 @@ The approach is scalable, maintainable, and aligned with real-world challenges i
             )}
 
             {artifact.uniqueValue && (
-              <section className="artifact-section">
+              <section id="section-uniqueValue" className="artifact-section">
                 <h2
                   onClick={() => toggleSection("uniqueValue")}
                   className="collapsible-header"
@@ -1105,7 +1177,7 @@ The approach is scalable, maintainable, and aligned with real-world challenges i
             )}
 
             {artifact.relevance && (
-              <section className="artifact-section">
+              <section id="section-relevance" className="artifact-section">
                 <h2
                   onClick={() => toggleSection("relevance")}
                   className="collapsible-header"
@@ -1126,7 +1198,7 @@ The approach is scalable, maintainable, and aligned with real-world challenges i
             )}
 
             {artifact.learnings && (
-              <section className="artifact-section">
+              <section id="section-learnings" className="artifact-section">
                 <h2
                   onClick={() => toggleSection("learnings")}
                   className="collapsible-header"
@@ -1149,7 +1221,7 @@ The approach is scalable, maintainable, and aligned with real-world challenges i
             )}
 
             {artifact.references && artifact.references.length > 0 && (
-              <section className="artifact-section">
+              <section id="section-references" className="artifact-section">
                 <h2
                   onClick={() => toggleSection("references")}
                   className="collapsible-header"
@@ -1186,7 +1258,7 @@ The approach is scalable, maintainable, and aligned with real-world challenges i
         ) : artifact.type === "reflection" ? (
           <>
             {artifact.introduction && (
-              <section className="artifact-section">
+              <section id="section-introduction" className="artifact-section">
                 <h2
                   onClick={() => toggleSection("introduction")}
                   className="collapsible-header"
@@ -1207,7 +1279,7 @@ The approach is scalable, maintainable, and aligned with real-world challenges i
             )}
 
             {artifact.valueStatement && (
-              <section className="artifact-section">
+              <section id="section-valueProp" className="artifact-section">
                 <h2
                   onClick={() => toggleSection("valueProp")}
                   className="collapsible-header"
@@ -1231,7 +1303,7 @@ The approach is scalable, maintainable, and aligned with real-world challenges i
             )}
 
             {artifact.strategies && artifact.strategies.length > 0 && (
-              <section className="artifact-section">
+              <section id="section-process" className="artifact-section">
                 <h2
                   onClick={() => toggleSection("process")}
                   className="collapsible-header"
@@ -1267,7 +1339,7 @@ The approach is scalable, maintainable, and aligned with real-world challenges i
             )}
 
             {artifact.aiDisclosure && (
-              <section className="artifact-section">
+              <section id="section-tools" className="artifact-section">
                 <h2
                   onClick={() => toggleSection("tools")}
                   className="collapsible-header"
@@ -1288,7 +1360,7 @@ The approach is scalable, maintainable, and aligned with real-world challenges i
             )}
 
             {artifact.learnings && (
-              <section className="artifact-section">
+              <section id="section-learnings" className="artifact-section">
                 <h2
                   onClick={() => toggleSection("learnings")}
                   className="collapsible-header"
@@ -1324,7 +1396,7 @@ The approach is scalable, maintainable, and aligned with real-world challenges i
             </div>
 
             {artifact.introduction && (
-              <section className="artifact-section">
+              <section id="section-introduction" className="artifact-section">
                 <h2
                   onClick={() => toggleSection("introduction")}
                   className="collapsible-header"
@@ -1345,7 +1417,7 @@ The approach is scalable, maintainable, and aligned with real-world challenges i
             )}
 
             {artifact.objective && (
-              <section className="artifact-section">
+              <section id="section-objective" className="artifact-section">
                 <h2
                   onClick={() => toggleSection("objective")}
                   className="collapsible-header"
@@ -1376,7 +1448,7 @@ The approach is scalable, maintainable, and aligned with real-world challenges i
               </section>
             )}
 
-            <section className="artifact-section">
+            <section id="section-overview" className="artifact-section">
               <h2
                 onClick={() => toggleSection("overview")}
                 className="collapsible-header"
@@ -1396,7 +1468,7 @@ The approach is scalable, maintainable, and aligned with real-world challenges i
             </section>
 
             {artifact.process && (
-              <section className="artifact-section">
+              <section id="section-process" className="artifact-section">
                 <h2
                   onClick={() => toggleSection("process")}
                   className="collapsible-header"
@@ -1415,7 +1487,7 @@ The approach is scalable, maintainable, and aligned with real-world challenges i
             )}
 
             {artifact.toolsAndTechnologies && (
-              <section className="artifact-section">
+              <section id="section-tools" className="artifact-section">
                 <h2
                   onClick={() => toggleSection("tools")}
                   className="collapsible-header"
@@ -1436,7 +1508,7 @@ The approach is scalable, maintainable, and aligned with real-world challenges i
             )}
 
             {artifact.valueProposition && (
-              <section className="artifact-section">
+              <section id="section-valueProp" className="artifact-section">
                 <h2
                   onClick={() => toggleSection("valueProp")}
                   className="collapsible-header"
@@ -1457,7 +1529,7 @@ The approach is scalable, maintainable, and aligned with real-world challenges i
             )}
 
             {artifact.comparison && (
-              <section className="artifact-section">
+              <section id="section-comparison" className="artifact-section">
                 <h2
                   onClick={() => toggleSection("comparison")}
                   className="collapsible-header"
@@ -1495,7 +1567,7 @@ The approach is scalable, maintainable, and aligned with real-world challenges i
             )}
 
             {artifact.learnings && (
-              <section className="artifact-section">
+              <section id="section-learnings" className="artifact-section">
                 <h2
                   onClick={() => toggleSection("learnings")}
                   className="collapsible-header"
@@ -1518,7 +1590,7 @@ The approach is scalable, maintainable, and aligned with real-world challenges i
             )}
 
             {artifact.references && artifact.references.length > 0 && (
-              <section className="artifact-section">
+              <section id="section-references" className="artifact-section">
                 <h2
                   onClick={() => toggleSection("references")}
                   className="collapsible-header"
@@ -1580,7 +1652,7 @@ The approach is scalable, maintainable, and aligned with real-world challenges i
             </div>
 
             {artifact.introduction && (
-              <section className="artifact-section">
+              <section id="section-introduction" className="artifact-section">
                 <h2
                   onClick={() => toggleSection("introduction")}
                   className="collapsible-header"
@@ -1601,7 +1673,7 @@ The approach is scalable, maintainable, and aligned with real-world challenges i
             )}
 
             {artifact.objective && (
-              <section className="artifact-section">
+              <section id="section-objective" className="artifact-section">
                 <h2
                   onClick={() => toggleSection("objective")}
                   className="collapsible-header"
@@ -1632,7 +1704,7 @@ The approach is scalable, maintainable, and aligned with real-world challenges i
               </section>
             )}
 
-            <section className="artifact-section">
+            <section id="section-overview" className="artifact-section">
               <h2
                 onClick={() => toggleSection("overview")}
                 className="collapsible-header"
@@ -1664,7 +1736,7 @@ The approach is scalable, maintainable, and aligned with real-world challenges i
             </section>
 
             {artifact.process && (
-              <section className="artifact-section">
+              <section id="section-process" className="artifact-section">
                 <h2
                   onClick={() => toggleSection("process")}
                   className="collapsible-header"
@@ -1743,7 +1815,7 @@ The approach is scalable, maintainable, and aligned with real-world challenges i
             )}
 
             {artifact.toolsAndTechnologies && (
-              <section className="artifact-section">
+              <section id="section-tools" className="artifact-section">
                 <h2
                   onClick={() => toggleSection("tools")}
                   className="collapsible-header"
@@ -1764,7 +1836,7 @@ The approach is scalable, maintainable, and aligned with real-world challenges i
             )}
 
             {artifact.valueProposition && (
-              <section className="artifact-section">
+              <section id="section-valueProp" className="artifact-section">
                 <h2
                   onClick={() => toggleSection("valueProp")}
                   className="collapsible-header"
@@ -1785,7 +1857,7 @@ The approach is scalable, maintainable, and aligned with real-world challenges i
             )}
 
             {artifact.labLog && artifact.labLog.length > 0 && (
-              <section className="artifact-section">
+              <section id="section-labLog" className="artifact-section">
                 <h2
                   onClick={() => toggleSection("labLog")}
                   className="collapsible-header"
@@ -1825,7 +1897,7 @@ The approach is scalable, maintainable, and aligned with real-world challenges i
             )}
 
             {artifact.learnings && (
-              <section className="artifact-section">
+              <section id="section-learnings" className="artifact-section">
                 <h2
                   onClick={() => toggleSection("learnings")}
                   className="collapsible-header"
@@ -1848,7 +1920,7 @@ The approach is scalable, maintainable, and aligned with real-world challenges i
             )}
 
             {artifact.references && artifact.references.length > 0 && (
-              <section className="artifact-section">
+              <section id="section-references" className="artifact-section">
                 <h2
                   onClick={() => toggleSection("references")}
                   className="collapsible-header"
