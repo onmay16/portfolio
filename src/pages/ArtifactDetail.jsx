@@ -779,6 +779,85 @@ The project demonstrates full-stack web development skills, research capabilitie
 
 The interactive format makes complex business information accessible and engaging, allowing readers to explore content at their own pace and focus on industries most relevant to them. This approach to presenting research findings is directly applicable to communicating AI insights to business stakeholders.`,
     },
+    7: {
+      id: 7,
+      title: "Generative AI Storytelling for Brand Development",
+      description:
+        "AI-powered interactive training for front-of-house staff (HR/Operations), using tool chaining with Google Gemini for scenario generation and Streamlit with Cursor for an interactive training demo.",
+      technologies: ["Google Gemini", "Streamlit", "Cursor", "HeyGen", "Tool Chaining"],
+      link: "https://nqnpfa4v7rs27iwbtsdmng.streamlit.app/",
+      icon: "⛓️",
+      videoPitchLink: "https://app.heygen.com/videos/6022935fc35540cab20b1de0cddb27fd",
+      introduction: `High employee turnover in food and beverage operations leads to inconsistent service quality. Training is often repetitive, costly, and dependent on managers; brand values are documented but not consistently practiced on the floor. This assignment asked us to use generative AI for internal training and brand storytelling—designing a multi-modal solution that chains two or more AI tools to address a specific business problem.
+
+This work connects to using AI for both external engagement and internal improvement: building an AI-powered interactive training system where front-of-house staff practice realistic customer scenarios and receive immediate, brand-aligned feedback.`,
+      objective: {
+        intro:
+          "The primary objective of this assignment was to demonstrate tool chaining with generative AI for brand development and internal operations. Specifically:",
+        items: [
+          "Choose a problem or business vertical within a fictional company where AI tools can provide measurable improvements",
+          "Develop content using two different AI tools and chain their outputs (e.g., from one medium or format to another)",
+          "Create an end-to-end solution that addresses the chosen problem with quality and accuracy",
+          "Deliver a video pitch and documentation of all generated content, including tool inputs and outputs",
+        ],
+      },
+      detailedDescription: `This project addresses the use case **AI-Generated Training Content for Front-of-House Staff** in the **HR/Operations** vertical. The solution is an AI-powered interactive training system: employees practice realistic customer scenarios and receive immediate feedback aligned with brand values (Warmth, Ownership, Clarity, Efficiency).
+
+**Tool chain:** (1) **Google Gemini 3 Pro** generates structured training scenarios and scenario images from brand values and front-of-house context. (2) A **Streamlit** app, built with **Cursor** as an AI-assisted coding partner, turns those scenarios into a decision-based training game—users review a scenario, choose a response, and get immediate feedback and scoring. Together, the tools form an end-to-end workflow from content creation to interactive delivery.`,
+      process: {
+        intro:
+          "The project was developed by chaining two AI tools, with each step feeding the next:",
+        sections: [
+          {
+            title: "Tool 1 — Google Gemini 3 Pro (Scenario Generation)",
+            content:
+              "Inputs: brand values (Warmth, Ownership, Clarity, Efficiency) and front-of-house context (time pressure, role, store condition). Outputs: JSON-formatted customer service scenarios (context, response options, ideal response, skill tags) and one image per scenario. Chat link to the Gemini conversation is provided in References.",
+          },
+          {
+            title: "Tool 2 — Cursor & Streamlit (Interactive Training App)",
+            content:
+              "The Streamlit application was built using Cursor as an AI-assisted coding environment. Inputs: scenario JSON files and scenario images from Gemini. Output: an interactive training game where users review a scenario, choose a response, and receive immediate feedback and scoring. The live demo is linked at the top of this page.",
+          },
+        ],
+      },
+      toolsAndTechnologies: `This project used the following tools and technologies:
+
+- **Google Gemini 3 Pro**: Generated realistic training scenarios and contextual images in structured JSON format, with one image per scenario saved by scenario ID.
+
+- **Streamlit**: Used to build the interactive training web app that presents scenarios, captures user choices, and provides feedback and scoring.
+
+- **Cursor**: AI-assisted coding partner for implementing the Streamlit app, demonstrating AI usage throughout development as well as in the final product.
+
+- **Tool chaining**: Gemini’s scalable, structured content feeds directly into the Streamlit app, showing an end-to-end AI workflow from content creation to delivery.`,
+      valueProposition: `This project demonstrates effective AI tool chaining for internal operations and brand storytelling:
+
+- **Gemini** produces scalable, structured content (scenarios + images) that would be costly to create manually.
+- **Streamlit** turns that content into interactive, decision-based learning instead of static materials.
+- **Cursor** accelerates reliable implementation of the app.
+
+The approach is scalable, maintainable, and aligned with real-world challenges in the Food & Beverage industry—transforming static training into interactive, brand-aligned experiences.`,
+      learnings: [
+        "Chaining two or more AI tools (e.g., generative content + interactive app) creates an end-to-end workflow from creation to delivery.",
+        "Structured AI outputs (e.g., JSON scenarios) integrate cleanly with custom apps for controllable, scalable content.",
+        "Brand values can be embedded into training design (scenario design and feedback criteria) so practice is aligned with company culture.",
+        "AI-assisted development (Cursor) speeds up building the delivery layer (Streamlit) while keeping the human in the loop for design and quality.",
+        "Using generative AI for internal training and operations is a practical application of the same storytelling and tool-integration concepts used in marketing.",
+      ],
+      references: [
+        {
+          title: "Gemini scenario generation (chat)",
+          url: "https://gemini.google.com/share/8cc275ef02af",
+          description:
+            "Chat link showing scenario generation with Gemini: inputs (brand values, FOH context) and outputs (JSON scenarios and scenario images).",
+        },
+        {
+          title: "ChatGPT brainstorming",
+          url: "https://chatgpt.com/share/69839f97-2898-8007-8e25-dc654cfcd13b",
+          description:
+            "Chat link used for brainstorming and concept development before implementing the tool chain.",
+        },
+      ],
+    },
   };
 
   const artifact = artifactsData[id];
@@ -1476,14 +1555,28 @@ The interactive format makes complex business information accessible and engagin
         ) : (
           <>
             <div className="project-link-section">
-              <a
-                href={artifact.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="project-link-button"
-              >
-                View Project →
-              </a>
+              <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
+                {artifact.link && (
+                  <a
+                    href={artifact.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="project-link-button"
+                  >
+                    View Project →
+                  </a>
+                )}
+                {artifact.videoPitchLink && (
+                  <a
+                    href={artifact.videoPitchLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="project-link-button"
+                  >
+                    Watch Video Pitch →
+                  </a>
+                )}
+              </div>
             </div>
 
             {artifact.introduction && (

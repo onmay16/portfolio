@@ -69,6 +69,15 @@ function Artifacts() {
       link: "https://chatgpt.com/canvas/shared/693f67a40c3881919f6e99ae89e18a12",
       icon: "📰",
     },
+    {
+      id: 7,
+      title: "Generative AI Storytelling for Brand Development",
+      description:
+        "AI-powered interactive training for front-of-house staff (HR/Operations), using tool chaining with Google Gemini for scenario generation and Streamlit with Cursor for an interactive training demo.",
+      technologies: ["Google Gemini", "Streamlit", "Cursor", "HeyGen", "Tool Chaining"],
+      link: "https://nqnpfa4v7rs27iwbtsdmng.streamlit.app/",
+      icon: "⛓️",
+    },
   ];
 
   return (
